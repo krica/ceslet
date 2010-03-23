@@ -1,0 +1,92 @@
+body{
+	font: 78% "Trebuchet MS", sans-serif;
+  color: #222222;
+	margin: 0 auto;
+	background-color:#efefef;
+	background-image: url(../images/body_bg.png);
+	background-position: top;
+	background-repeat: repeat-x;
+  width: 1135px;
+}
+
+#head {
+  height: 82px;
+  margin-left: auto;
+  margin-right: auto;
+  background:  url('../images/head_bg.png') center top no-repeat;
+  text-align: left;
+}
+
+#head a.logo {
+  display: block;
+  width: 148px;
+  height: 58px;
+  position: absolute;
+  margin-left: 43px;
+  margin-top: 11px;
+}
+
+#head ul#login-button {
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+#head ul#top-menu {
+ float: right;
+ margin-top: 20px;
+ margin-right: 470px;
+}
+
+#head ul#top-menu li {
+ display: inline;
+}
+
+#content {
+  background: url('../images/content_bg.png') right top repeat-y;
+  min-height: 460px;
+  padding-left: 15px;
+
+}
+
+#footer {
+  background: url('../images/foot_bg2.png') center top no-repeat;
+  height: 20px;
+}
+
+
+
+.center {
+  width: 100%;
+  text-align: center;
+}
+
+.left {
+  width: 100%;
+  text-align: left;
+}
+
+
+a.fg-button, span.fg-button {
+  text-decoration: none;
+  position: relative; 
+  font-size: 1em;
+  text-shadow: 1px 1px 0 #ccc; 
+  font-weight: bold; color: #1c94c4;}
+
+
+h1, h2, h3 {
+  text-align: left;
+}
+
+h1 
+{
+  font-weight: bold;
+  line-height: 220%;
+  font-size: 180%;
+  padding-top: 10px;
+  color: #1C94C4;
+  margin-top: 0px;
+  
+}
+

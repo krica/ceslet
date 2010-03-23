@@ -1,0 +1,15 @@
+<h1>User show</h1>
+
+<div class="box fullwidth left">
+  <table>
+    <tr>
+      <td><b>Login</b>:</td>
+      <td><%= @user.login %></td>
+    </tr>
+  </table>
+  <br />
+  <br />
+  <p>
+    <%= link_to_with_icon('pencil','Ahoj',{:action => :show},:class=>"fg-button  to-button") %>
+  </p>
+</div>
