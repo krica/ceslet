@@ -1,14 +1,18 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
-  before_filter :login_required, :only => [:edit, :show]
-  
+  before_filter :login_required, :only => [:edit, :show] 
   
   include AuthenticatedSystem
   layout 'ceslet' 
 
   # render new.rhtml
   def new
+    if !current_user.has_role?("admin")
+      flash[:notice] = t('No_right')
+      redirect_to "/"
+    end
     @user = User.new
+    
   end
  
   def create
@@ -22,9 +26,9 @@ class UsersController < ApplicationController
       # reset session
       self.current_user = @user # !! now logged in
       redirect_back_or_default('/')
-      flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
+      flash[:notice] = t('sign up successfull')
     else
-      flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
+      flash[:error]  = t('sign up unsuccessfull')
       render :action => 'new'
     end
   end

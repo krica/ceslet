@@ -14,27 +14,32 @@
 </head>
 <body>
   <div class="center">
-    <div id="head">
-      <a href="/" class="logo"></a>
-      <ul id="login-button">
-        <li><%= login_button %></li>
-      </ul>
-      <% if session[:user_id] %>
-        <ul id="top-menu">
-          <li><%= link_to_with_icon('pencil',t('offesr'),{:controller => :offers, :action => :index}, :class => "to-button fg-button") %></li>
-          <li><%= link_to_with_icon('pencil',t('offesr'),{:controller => :offers, :action => :index}, :class => "to-button fg-button") %></li>
-          <li><%= link_to_with_icon('pencil',t('offesr'),{:controller => :offers, :action => :index}, :class => "to-button fg-button") %></li>
-        </ul>
-      <% end %>
-    </div>
     <div id="content">
-      <div class="left">
+      <div id="head">
+        <a href="/" class="logo"></a>
+        <ul id="login-button">
+          <li><%= login_button %></li>
+        </ul>
+        <% if session[:user_id] %>
+          <ul id="top-menu">
+            <li><%= link_to_with_icon('document',t('Offers'),{:controller => :offers, :action => :index}, :class => "to-button fg-button") %></li>
+            <li><%= link_to_with_icon('flag',t('Projects'),{:controller => :offers, :action => :index}, :class => "to-button fg-button") %></li>
+          </ul>
+        <% end %>
+      </div>
+      <div id="wrapper" class="left">
+        <% if flash[:notice] %>
+          <div id='flash-notice' class="ui-state-highlight ui-corner-all">
+            <p><%= flash[:notice]  %></p>
+          </div>
+        <% end %>
         <%= yield %>
-       </div> 
+      </div> 
+      <br class="clear-all" />
     </div>
-    <div id="footer">
+      <div id="footer">
     </div>
-</div>
+  </div>
 </body>
 </html>
 

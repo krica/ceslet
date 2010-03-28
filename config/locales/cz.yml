@@ -1,3 +1,23 @@
 cz:
   logout_button: Odhlásit
   Log in: Přihlásit
+  Add user: Přidat uživatele
+  New user: Nový uživatel
+  Back: Zpět
+  Sign up: Založit
+  Email: E-mail
+  Password: Heslo
+  Confirm Password: Potvzení hesla
+  Login: Login
+  Name: Jméno
+  Offers: Nabídky
+  Projects: Projekty
+  No_right: Nemáte dostatečné oprávnění. 
+  Login header: Přihlášení
+  Sign up successfull: Uživatel byl úspěšně přidán.
+  Sign up unsuccessfull: Přidání uživatele se nezdařilo.
+  Role: Role
+  Logged in successfully: Úspěšně přihlášen.
+  You have been logged out: Úspěšně odhlášen.
+  
+              

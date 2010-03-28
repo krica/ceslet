@@ -1,9 +1,14 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  def back_link(path)
+   link_to_with_icon('circle-triangle-w', t('Back'), path,
+     :class=>"fg-button to-button")
+  end  
+
   def login_button
     if session[:user_id]
-      link_to_with_icon('pencil',t('logout_button'), {:controller => :sessions, :action => :destroy}, :class => "login-button to-button fg-button")
+      link_to_with_icon('key',t('logout_button'), {:controller => :sessions, :action => :destroy}, :class => "login-button to-button fg-button")
     end
   end
   

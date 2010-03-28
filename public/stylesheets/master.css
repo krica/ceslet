@@ -6,15 +6,13 @@ body{
 	background-image: url(../images/body_bg.png);
 	background-position: top;
 	background-repeat: repeat-x;
-  width: 1135px;
 }
 
 #head {
   height: 82px;
   margin-left: auto;
   margin-right: auto;
-  background:  url('../images/head_bg.png') center top no-repeat;
-  text-align: left;
+  background:  url('../images/head_bg2.png') center top no-repeat;
 }
 
 #head a.logo {
@@ -33,20 +31,28 @@ body{
 }
 
 #head ul#top-menu {
- float: right;
+ position: absolute;
+ margin-left: 240px;
  margin-top: 20px;
- margin-right: 470px;
 }
 
 #head ul#top-menu li {
  display: inline;
 }
 
-#content {
-  background: url('../images/content_bg.png') right top repeat-y;
-  min-height: 460px;
-  padding-left: 15px;
 
+#content {
+  margin-left: auto;
+  margin-right: auto;
+  background: url('../images/content_bg.png') center top repeat-y;
+  width: 1135px;
+}
+
+#wrapper {
+  width: 1090px;
+  min-height: 400px;
+  padding-left: 20px;
+  padding-top: 15px;
 }
 
 #footer {
@@ -82,11 +88,35 @@ h1, h2, h3 {
 h1 
 {
   font-weight: bold;
-  line-height: 220%;
+  line-height: 200%;
   font-size: 180%;
-  padding-top: 10px;
   color: #1C94C4;
-  margin-top: 0px;
   
 }
+
+p
+{
+  padding-bottom: 10px;
+}
+
+.right-box 
+{
+  margin-right: 200px;
+  float: right;
+}
+
+.box {
+  padding: 10px;
+  width: 400px;
+}
+
+#flash-notice {
+  padding: 10px 0px 0px 15px;
+  font-size: 130%;
+  background: #EAF4FD;
+  border-color: #C5DBEC;
+  color: #1C94C4;
+  font-weight: bold;
+}
+
 
