@@ -19,5 +19,19 @@ cz:
   Role: Role
   Logged in successfully: Úspěšně přihlášen.
   You have been logged out: Úspěšně odhlášen.
-  
+  New group: Nová skupina
+  Abbreviation: Zkratka
+  Name: Název
+  Listing groups: Skupiny
+  Show: Zobrazit
+  Edit: Upravit
+  Destroy: Smazat
+  Create: Vytvořit
+  Back: Zpět
+  Group: Skupina
+  Editing group: Úprava skupiny
+  Update: Upravit
+  Group deleted: Skupina byla úspěšně smazána.
+  Group updated: Skupina byla úspěšně upravena.
+  Group created: Skupina byla úspěšně vytvořena.
               

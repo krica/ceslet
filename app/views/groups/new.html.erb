@@ -1,0 +1,19 @@
+<h1><%= t('New group') %></h1>
+
+<% form_for(@group) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('Name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label t('Abbreviation') %><br />
+    <%= f.text_field :abbreviation %>
+  </p>
+  <p>
+  <%= f.submit t('Create'), :class => "to-btn" %>
+  </p>
+<% end %>
+
+<%= link_to t('Back'), groups_path, :class => "to-btn" %>

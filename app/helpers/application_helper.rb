@@ -3,12 +3,12 @@ module ApplicationHelper
 
   def back_link(path)
    link_to_with_icon('circle-triangle-w', t('Back'), path,
-     :class=>"fg-button to-button")
+     :class=>"fg-button to-btn")
   end  
 
   def login_button
     if session[:user_id]
-      link_to_with_icon('key',t('logout_button'), {:controller => :sessions, :action => :destroy}, :class => "login-button to-button fg-button")
+      link_to_with_icon('key',t('logout_button'), {:controller => :sessions, :action => :destroy}, :class => "login-button to-btn fg-button")
     end
   end
   

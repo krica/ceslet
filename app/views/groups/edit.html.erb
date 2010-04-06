@@ -1,0 +1,21 @@
+<h1><%= t('Editing group') %></h1>
+
+<% form_for(@group) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :abbreviation %><br />
+    <%= f.text_field :abbreviation %>
+  </p>
+  <p>
+  <%= f.submit t('Update'), :class => "to-btn" %>
+  </p>
+<% end %>
+<p>
+  <%= link_to t('Show'), @group, :class => "to-btn" %>
+  <%= link_to t('Back'), groups_path, :class => "to-btn" %>
+</p>

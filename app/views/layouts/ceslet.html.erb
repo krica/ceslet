@@ -22,8 +22,8 @@
         </ul>
         <% if session[:user_id] %>
           <ul id="top-menu">
-            <li><%= link_to_with_icon('document',t('Offers'),{:controller => :offers, :action => :index}, :class => "to-button fg-button") %></li>
-            <li><%= link_to_with_icon('flag',t('Projects'),{:controller => :offers, :action => :index}, :class => "to-button fg-button") %></li>
+            <li><%= link_to_with_icon('document',t('Offers'),{:controller => :offers, :action => :index}, :class => "to-btn fg-button") %></li>
+            <li><%= link_to_with_icon('flag',t('Projects'),{:controller => :offers, :action => :index}, :class => "to-btn fg-button") %></li>
           </ul>
         <% end %>
       </div>

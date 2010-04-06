@@ -78,8 +78,16 @@ a.fg-button, span.fg-button {
   position: relative; 
   font-size: 1em;
   text-shadow: 1px 1px 0 #ccc; 
-  font-weight: bold; color: #1c94c4;}
+  font-weight: bold; color: #1c94c4;
+}
 
+a.fg-btn-small, span.fg-btn-small {
+  text-decoration: none;
+  position: relative; 
+  font-size: 0.95em;
+  text-shadow: 1px 1px 0 #ccc; 
+  font-weight: bold; color: #1c94c4;
+}
 
 h1, h2, h3 {
   text-align: left;
@@ -97,6 +105,16 @@ h1
 p
 {
   padding-bottom: 10px;
+}
+
+th
+{
+  padding: 0px 5px 0px 5px;
+}
+
+td
+{
+  padding: 3px 5px 3px 5px;
 }
 
 .right-box 
@@ -118,5 +136,4 @@ p
   color: #1C94C4;
   font-weight: bold;
 }
-
 

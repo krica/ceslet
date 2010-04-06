@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
 });
 
 function changeLink(){
-    jQuery(".to-button").button();
+    jQuery(".to-btn").button();
 }
 
 function hideNotice() {

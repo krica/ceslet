@@ -1,0 +1,25 @@
+<h1><%= t('Listing groups') %></h1>
+
+<table>
+  <tr>
+    <th><%= t('Name') %></th>
+    <th><%= t('Abbreviation') %></th>
+    <th></th>
+  </tr>
+
+<% @groups.each do |group| %>
+  <tr>
+    <td><%=h group.name %></td>
+    <td><%=h group.abbreviation %></td>
+    <td>  
+      <%= link_to t('Show'), group , :class => "to-btn fg-btn-small" %>
+      <%= link_to t('Edit'), edit_group_path(group), :class => "to-btn fg-btn-small" %>
+      <%= link_to t('Destroy'), group, :confirm => t('Are you sure?'), :method => :delete, :class => "to-btn fg-btn-small" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('New group'), new_group_path, :class => "to-btn" %>

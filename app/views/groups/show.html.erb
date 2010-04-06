@@ -1,0 +1,15 @@
+<h1><%= t('Group') %></h1>
+<p>
+  <b>Name:</b>
+  <%=h @group.name %>
+</p>
+
+<p>
+  <b>Abbreviation:</b>
+  <%=h @group.abbreviation %>
+</p>
+
+<p>
+  <%= link_to t('Edit'), edit_group_path(@group), :class => "to-btn" %>
+</p>
+<%= link_to t('Back'), groups_path, :class => "to-btn" %>
