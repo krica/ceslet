@@ -34,4 +34,20 @@ cz:
   Group deleted: Skupina byla úspěšně smazána.
   Group updated: Skupina byla úspěšně upravena.
   Group created: Skupina byla úspěšně vytvořena.
-              
+  User name: Jméno
+  Lastname: Příjmení
+  Admin users: Správa uživatelů
+  Edit users: Upravit uživatele
+  Listing users: Seznam uživatelů
+  Admin groups: Spravovat skupiny
+  User: Uživatel
+  Editing user: Úprva uživatele
+  User updated: Uživatel byl úspěšně upraven.
+  User destroyed: Uživatel byl úspěšně smazán.
+  Back to users: Zpět na správu uživatelů
+  Groups: Skupiny
+  Admin roles: Spravovat role
+  Are you sure: Jste si jistí?
+  Listing roles: Role
+  Add role: Přidat roli
+

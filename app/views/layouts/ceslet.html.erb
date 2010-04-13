@@ -18,6 +18,9 @@
       <div id="head">
         <a href="/" class="logo"></a>
         <ul id="login-button">
+          <% if current_user %>
+          <li><span id="display-login"><b><%= current_user.display_name %></b> (<%= current_user.login %>)</span></li>
+          <% end %>
           <li><%= login_button %></li>
         </ul>
         <% if session[:user_id] %>

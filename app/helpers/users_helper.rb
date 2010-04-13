@@ -1,5 +1,22 @@
 module UsersHelper
   
+
+
+  #returns users group checkboxes
+  def user_group_checkbox
+    ret = ""
+    Group.find(:all).each do |group|
+      if @user && @user.groups.include?(group)
+        checked = true
+      else
+        checked = false
+      end
+      ret << check_box_tag("groups[]", group.id, checked)
+      ret << group.name + " (#{group.abbreviation})<br />"
+
+    end
+    return ret
+  end
   #
   # Use this to wrap view elements that the user can't access.
   # !! Note: this is an *interface*, not *security* feature !!

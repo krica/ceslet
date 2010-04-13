@@ -1,11 +1,34 @@
-<div class="box fullwidth left">
+<h1><%= t('User') %></h1>
   <p>
-    <%= link_to_with_icon('plus',t('Add user') ,{:action => :new}, :class=>"fg-button  to-btn") %>
+    <b><%= t('User name') %></b>
+    <%= @user.display_name %>
   </p>
-  <table>
-    <tr>
-      <td><b>Login</b>:</td>
-      <td><%= @user.login %></td>
-    </tr>
-  </table>
-</div>
+  <p>
+    <b><%= t('Login') %></b>
+    <%= @user.login %>
+  </p>
+  <p>
+    <b><%= t('Email') %></b>
+    <%= @user.email %>
+  </p>
+  <p>
+    <b><%= t('Role') %></b>
+    <%= @user.role.name %>
+  </p>
+  <p>
+  <b><%= t('Groups') %></b>
+  <ul>
+      <% @user.groups.each do |group| %>
+        <li>
+          <%= group.name %> (<%= group.abbreviation %>)<br />
+        </li>
+      <% end %>
+      </ul>
+  </p>
+
+
+  <br />
+<p>
+  <%= back_link(users_path) %>
+  <%= link_to t('Edit'), edit_user_path(@user), :class => "fg-button to-btn" %>
+</p>

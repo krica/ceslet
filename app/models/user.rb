@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   include Authentication::ByCookieToken
 
   belongs_to :role
+  has_and_belongs_to_many :groups
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
@@ -37,13 +38,17 @@ class User < ActiveRecord::Base
   # We really need a Dispatch Chain here or something.
   # This will also let us return a human error message.
   #
-  
+  def display_name
+    return "#{self.name} #{self.lastname}"
+  end
+
   def has_role?(role)
     if self.role
-    if self.role.name = role
+    if self.role.name == role
       return true
     end
     end
+    return false
   end
   
   def self.authenticate(login, password)

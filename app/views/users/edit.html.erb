@@ -1,0 +1,45 @@
+<h1><%= t('Editing user') %></h1>
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+<div class="box right-box">
+  <fieldset>
+    <p>
+      <%= label_tag t('Role') %><br />
+      <%= f.select(:role_id, Role.all.map {|r| [r.name, r.id]}) %> 
+    </p>
+    <p>
+      <%= t('Groups') %><br />
+      <%= user_group_checkbox %>
+    </p>
+  </fieldset>
+</div>
+<div class="box">
+  <fieldset>
+  <p>
+    <%= f.label t('User name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label t('Lastname') %><br />
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <%= f.label t('Login') %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+    <%= f.label t('Email') %><br />
+    <%= f.text_field :email %>
+  </p>
+  </fieldset>
+</div>
+  <p>
+  <%= f.submit t('Update'), :class => "to-btn" %>
+  </p>
+<% end %>
+<p>
+  <%= back_link(users_path) %>
+  <%= link_to t('Show'), @user, :class => "fg-button to-btn" %>
+</p>

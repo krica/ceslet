@@ -1,0 +1,27 @@
+<h1><%= t('Admin users') %></h1>
+
+<table>
+  <tr>
+    <th><%= t('User name') %></th>
+    <th><%= t('Login') %></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.display_name %></td>
+    <td><%= user.login %></td>
+    <td>
+      <%= link_to t('Show'), user, :class => "to-btn fg-btn-small" %> 
+      <%= link_to t('Edit'), edit_user_path(user), :class => "to-btn fg-btn-small" %> 
+      <%= link_to t('Destroy'), user, :confirm => t('Are you sure'), :method => :delete, :class => "to-btn fg-btn-small" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<p>
+<%= link_to_with_icon('plus',t('Add user') ,{:action => :new}, :class=>"fg-button  to-btn") %>
+<%= link_to_with_icon('wrench',t('Admin groups') ,{:controller => :groups, :action => :index}, :class=>"fg-button  to-btn") %>
+</p>

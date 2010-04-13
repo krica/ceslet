@@ -1,4 +1,7 @@
 class RolesController < ApplicationController
+  
+  include AuthenticatedSystem
+  layout 'ceslet'
   # GET /roles
   # GET /roles.xml
   def index
