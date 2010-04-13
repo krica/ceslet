@@ -16,6 +16,6 @@
   </p>
 <% end %>
 <p>
-  <%= link_to t('Show'), @group, :class => "to-btn" %>
-  <%= link_to t('Back'), groups_path, :class => "to-btn" %>
+  <%= back_link(groups_path) %>
+  <%= link_to t('Show'), @group, :class => "fg-button to-btn" %>
 </p>

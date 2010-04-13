@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
 
+  include AuthenticatedSystem
   layout 'ceslet' 
 
   # GET /groups

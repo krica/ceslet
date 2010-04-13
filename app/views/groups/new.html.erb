@@ -12,8 +12,8 @@
     <%= f.text_field :abbreviation %>
   </p>
   <p>
-  <%= f.submit t('Create'), :class => "to-btn" %>
+  <%= f.submit t('Create'), :class => "fg-button to-btn" %>
   </p>
 <% end %>
 
-<%= link_to t('Back'), groups_path, :class => "to-btn" %>
+  <%= back_link(groups_path) %>

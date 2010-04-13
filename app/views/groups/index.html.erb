@@ -14,7 +14,7 @@
     <td>  
       <%= link_to t('Show'), group , :class => "to-btn fg-btn-small" %>
       <%= link_to t('Edit'), edit_group_path(group), :class => "to-btn fg-btn-small" %>
-      <%= link_to t('Destroy'), group, :confirm => t('Are you sure?'), :method => :delete, :class => "to-btn fg-btn-small" %>
+      <%= link_to t('Destroy'), group, :confirm => t('Are you sure'), :method => :delete, :class => "to-btn fg-btn-small" %>
     </td>
   </tr>
 <% end %>
@@ -22,4 +22,5 @@
 
 <br />
 
-<%= link_to t('New group'), new_group_path, :class => "to-btn" %>
+<%= link_to_with_icon('plus',t('New group') , new_group_path, :class=>"fg-btn-small to-btn") %>
+<%= link_to t('Back to users'), users_path, :class => "fg-btn-small to-btn" %>
