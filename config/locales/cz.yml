@@ -9,7 +9,6 @@ cz:
   Password: Heslo
   Confirm Password: Potvzení hesla
   Login: Login
-  Name: Jméno
   Offers: Nabídky
   Projects: Projekty
   No_right: Nemáte dostatečné oprávnění. 
@@ -50,4 +49,31 @@ cz:
   Are you sure: Jste si jistí?
   Listing roles: Role
   Add role: Přidat roli
+  Aircraft models: Letadla - Modely
+  Add aircraft model: Přidat model
+  New aircraft model: Nový model
+  Tcds: "T&#67&#68&#83"
+  Supplementary_indications: Doplňkové označení
+  Mtow kg: "M&#84&#79&#87 kg"
+  Speed vno: Rychlost vno
+  Speed vne: Rychlost vne
+  Speed vmin: Rychlost vmin
+  Original regulation basis: Původní certifikační základna
+  Number of passengers: Počet cestujících
+  Number of engines: Počet motorů
+  Engine type: Typ motorů
+  Editing aircraft model: Úprava modelu
+  Type: Typ
+  Add new type: Přidat nový typ
+  Cancel: Zrušit
+  Aircraft model: Model
+  Aircaft model created: Model byl úspěšně vytvořen.
+  Aircaft model updated: Model byl úspěšně upraven.
+  Admin aircraft types: Spravovat typy letadel
+  Aircraft types: Typy letadel
+  New aircraft type: Nový typ letadla
+  Aircraft type: Typ letadla
+  Editing aircraft type: Úprava typu letadla
+  Aircraft type updated: Typ byl úspěšně upraven.
+  Aircraft type created: Typ byl úspěšně vytvořen.
 

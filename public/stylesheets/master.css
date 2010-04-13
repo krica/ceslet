@@ -2,7 +2,7 @@ body{
 	font: 78% "Trebuchet MS", sans-serif;
   color: #222222;
 	margin: 0 auto;
-	background-color:#efefef;
+	background-color:#DCEAEF;
 	background-image: url(../images/body_bg.png);
 	background-position: top;
 	background-repeat: repeat-x;
@@ -28,6 +28,16 @@ body{
   float: right;
   margin-right: 20px;
   margin-top: 20px;
+}
+
+#head ul#login-button li {
+  display: inline;
+  padding-left: 5px;
+}
+
+#head #display-login
+{
+  font-size: 1.1em;
 }
 
 #head ul#top-menu {
@@ -135,5 +145,11 @@ td
   border-color: #C5DBEC;
   color: #1C94C4;
   font-weight: bold;
+}
+
+fieldset{
+	padding: 15px;
+	border: 1px solid #efefef;
+	background-color: #fbfbfb;
 }
 

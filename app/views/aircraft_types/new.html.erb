@@ -1,0 +1,15 @@
+<h1><%= t('New aircraft type') %></h1>
+
+<% form_for(@aircraft_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('Name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+  <%= f.submit t('Create'), :class => "to-btn fg-button" %>
+  </p>
+<% end %>
+
+<%= back_link(aircraft_types_path) %>

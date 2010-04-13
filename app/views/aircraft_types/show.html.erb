@@ -1,0 +1,9 @@
+<h1><%= t('Aircraft type') %></h1>
+<p>
+  <b><%= t('Name') %>:</b>
+  <%=h @aircraft_type.name %>
+</p>
+
+
+<%= back_link(aircraft_types_path) %>
+<%= link_to t('Edit'), edit_aircraft_type_path(@aircraft_type), :class => "fg-button to-btn" %>

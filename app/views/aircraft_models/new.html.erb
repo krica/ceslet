@@ -1,0 +1,84 @@
+<h1><%= t('New aircraft model') %></h1>
+
+<div id="add-type" style="display: none;">
+  <fieldset>
+  <h1><%= t('Add new type') %></h1>
+  <%= form_remote_tag(:update => "type-select", :url => {:controller => :aircraft_types, :action => :remote_create}, :success => "$('#add-type').slideUp('fast');$('#add-type-link').show();" ) %>
+      <p>
+        <%= t('Name') %><br />
+        <%= text_field_tag :name %>
+      </p>
+      <%= submit_tag t('Create'), :class => "fg-button to-btn" %>
+    </form>
+    <br />
+    <p>
+      <%= hide_add_type_link %>
+    </p>
+</fieldset>
+<br />
+<br />
+</div>
+<% form_for(@aircraft_model) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('Name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label t('Type') %><br />
+    <span id="type-select">
+      <%= f.select(:aircraft_type_id, AircraftType.all.map {|t| [t.name, t.id]}) %>
+    </span> 
+    &nbsp&nbsp
+    <%= add_type_link %>
+  </p>
+
+  <p>
+    <%= f.label t('Tcds') %><br />
+    <%= f.text_field :tcds %>
+  </p>
+  <p>
+    <%= f.label t('Supplementary_indications') %><br />
+    <%= f.text_field :supplementary_indications %>
+  </p>
+  <p>
+    <%= f.label t('Mtow kg') %><br />
+    <%= f.text_field :mtow_kg %>
+  </p>
+  <p>
+    <%= f.label t('Speed vno') %><br />
+    <%= f.text_field :speed_vno %>
+  </p>
+  <p>
+    <%= f.label t('Speed vne') %><br />
+    <%= f.text_field :speed_vne %>
+  </p>
+  <p>
+    <%= f.label t('Speed vmin') %><br />
+    <%= f.text_field :speed_vmin %>
+  </p>
+  <p>
+    <%= f.label t('Original regulation basis') %><br />
+    <%= f.text_field :original_regulation_basis %>
+  </p>
+  <p>
+    <%= f.label t('Number of passengers') %><br />
+    <%= f.text_field :number_of_passengers %>
+  </p>
+  <p>
+    <%= f.label t('Number of engines') %><br />
+    <%= f.text_field :number_of_engines %>
+  </p>
+  <p>
+    <%= f.label t('Engine type') %><br />
+    <%= f.text_field :engine_type %>
+  </p>
+  <p>
+  <%= f.submit t('Create'), :class => 'fg-button to-btn' %>
+  </p>
+
+
+<% end %>
+
+<%= back_link(aircraft_models_path) %>

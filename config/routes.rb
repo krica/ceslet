@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :aircraft_types
+
+  map.resources :aircraft_models
+
   map.resources :groups
 
   map.resources :roles

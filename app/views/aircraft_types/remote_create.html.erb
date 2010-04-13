@@ -1,0 +1,9 @@
+<select id="aircraft_model_aircraft_type_id">
+  <% @aircraft_types.each do |type| %>
+  <% if type == @aircraft_type %>
+    <option value="<%= type.id %>" selected="true"><%= type.name %></option>
+  <% else %>
+    <option value="<%= type.id %>"><%= type.name %></option>
+  <% end %>
+  <% end %>
+</select>

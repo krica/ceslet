@@ -1,0 +1,16 @@
+<h1><%= t('Editing aircraft type') %></h1>
+
+<% form_for(@aircraft_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+  <%= f.submit t('Update'), :class => "fg-button to-btn" %>
+  </p>
+<% end %>
+
+<%= back_link(aircraft_types_path) %>
+<%= link_to t('Show'), @aircraft_type, :class => "fg-button to-btn" %>

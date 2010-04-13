@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  tcds: MyString
+  supplementary_indications: MyString
+  mtow_kg: MyString
+  speed_vno: MyString
+  speed_vne: MyString
+  speed_vmin: MyString
+  original_regulation_basis: MyString
+  number_of_passengers: MyString
+  number_of_engines: MyString
+  engine_type: MyString
+  aircraft_type_id: 1
+
+two:
+  name: MyString
+  tcds: MyString
+  supplementary_indications: MyString
+  mtow_kg: MyString
+  speed_vno: MyString
+  speed_vne: MyString
+  speed_vmin: MyString
+  original_regulation_basis: MyString
+  number_of_passengers: MyString
+  number_of_engines: MyString
+  engine_type: MyString
+  aircraft_type_id: 1

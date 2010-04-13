@@ -1,0 +1,22 @@
+<h1><%= t('Aircraft types') %></h1>
+
+<table>
+  <tr>
+    <th><%= t('Name') %></th>
+  </tr>
+
+<% @aircraft_types.each do |aircraft_type| %>
+  <tr>
+    <td><%=h aircraft_type.name %></td>
+    <td>
+      <%= link_to t('Show'), aircraft_type, :class => "to-btn fg-btn-small" %>
+      <%= link_to t('Edit'), edit_aircraft_type_path(aircraft_type), :class => "to-btn fg-btn-small" %>
+      <%= link_to t('Destroy'), aircraft_type, :confirm => t('Are you sure'), :method => :delete, :class => "to-btn fg-btn-small" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= back_link(aircraft_models_path) %>
+<%= link_to t('Add new type'), new_aircraft_type_path, :class => "fg-button to-btn" %>
