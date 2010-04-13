@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
-  before_filter :login_required, :only => [:edit, :show, :index, :destroy, :update] 
+  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update] 
   
   include AuthenticatedSystem
   layout 'ceslet' 
@@ -11,11 +11,13 @@ class UsersController < ApplicationController
 
   # render new.rhtml
   def new
+    only_admin
     @user = User.new
     @groups = Group.find(:all)
   end
  
   def create
+    only_admin
     @user = User.new(params[:user])
     if params[:groups]
       params[:groups].each do |id|
@@ -37,6 +39,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    only_admin
     @user = User.find(params[:id]) 
   end
 
@@ -51,6 +54,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    only_admin
     @user = User.find(params[:id])
     @user.groups.delete_all
     if params[:groups]
