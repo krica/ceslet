@@ -1,0 +1,19 @@
+<h1><%= t('Company') %></h1>
+<p>
+  <b><%= t('Name') %>:</b>
+  <%=h @company.name %>
+</p>
+
+<p>
+  <b><%= t('Ico') %>:</b>
+  <%=h @company.ico %>
+</p>
+
+<p>
+  <b><%= t('Dic') %>:</b>
+  <%=h @company.dic %>
+</p>
+
+
+<%= back_link(companies_path) %>
+<%= link_to t('Edit'), edit_company_path(@company), :class => "fg-button to-btn" %>
