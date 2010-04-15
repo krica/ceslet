@@ -1,0 +1,25 @@
+<h1><%= t('Regulation bases') %></h1>
+
+<table>
+  <tr>
+    <th><%= t('Name') %></th>
+    <th><%= t('Mtow kg') %></th>
+    <th></th>
+  </tr>
+
+<% @regulation_bases.each do |regulation_basis| %>
+  <tr>
+    <td><%=h regulation_basis.name %></td>
+    <td><%=h regulation_basis.mtow_kg %></td>
+    <td>
+      <%= link_to t('Show'), regulation_basis, :class => "fg-btn-small to-btn" %>
+      <%= link_to t('Edit'), edit_regulation_basis_path(regulation_basis), :class => "fg-btn-small to-btn" %>
+      <%= link_to t('Destroy'), regulation_basis, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('New regulation_basis'), new_regulation_basis_path, :class => "fg-button to-btn" %>

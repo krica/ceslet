@@ -1,0 +1,2 @@
+module RegulationBasesHelper
+end

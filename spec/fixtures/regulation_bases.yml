@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  mtow_kg: MyString
+
+two:
+  name: MyString
+  mtow_kg: MyString

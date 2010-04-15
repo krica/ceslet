@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :regulation_bases
+
   map.resources :classifications
 
   map.resources :certification_fee_ones

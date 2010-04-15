@@ -1,0 +1,19 @@
+<h1><%= t('New regulation_basis') %></h1>
+
+<% form_for(@regulation_basis) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('Name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label t('Mtow kg') %><br />
+    <%= f.text_field :mtow_kg %>
+  </p>
+  <p>
+  <%= f.submit t('Create'), :class => "fg-button to-btn" %>
+  </p>
+<% end %>
+
+<%= back_link(regulation_bases_path) %>

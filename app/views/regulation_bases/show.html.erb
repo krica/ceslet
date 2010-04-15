@@ -1,0 +1,14 @@
+<h1><%= t('Regulation basis') %></h1>
+<p>
+  <b><%= t('Name') %>:</b>
+  <%=h @regulation_basis.name %>
+</p>
+
+<p>
+  <b><%= t('Mtow kg') %>:</b>
+  <%=h @regulation_basis.mtow_kg %>
+</p>
+
+
+<%= back_link(regulation_bases_path) %>
+<%= link_to t('Edit'), edit_regulation_basis_path(@regulation_basis), :class => "fg-button to-btn" %>
