@@ -1,6 +1,7 @@
 class ClassificationsController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet' 
+  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update] 
   # GET /classifications
   # GET /classifications.xml
   def index

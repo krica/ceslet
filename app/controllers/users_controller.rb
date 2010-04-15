@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
-  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update] 
+  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update, :main] 
   
   include AuthenticatedSystem
   layout 'ceslet' 

@@ -1,6 +1,7 @@
 class CertificationFeeOnesController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet' 
+  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update] 
   # GET /certification_fee_ones
   # GET /certification_fee_ones.xml
   def index
