@@ -99,6 +99,17 @@ a.fg-btn-small, span.fg-btn-small {
   font-weight: bold; color: #1c94c4;
 }
 
+a.fg-btn-main, span.fg-btn-main {
+  text-indent: 8px;
+  text-align: left;
+  width: 180px;
+  text-decoration: none;
+  position: relative; 
+  font-size: 1em;
+  text-shadow: 1px 1px 0 #ccc; 
+  font-weight: bold; color: #1c94c4;
+}
+
 h1, h2, h3 {
   text-align: left;
 }
