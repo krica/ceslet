@@ -8,6 +8,6 @@ function changeLink(){
 }
 
 function hideNotice() {
-  setTimeout("jQuery('#flash-notice').hide('slow')", 3000);
+  setTimeout("jQuery('#flash-notice').hide('slow')", 5000);
 }
 
