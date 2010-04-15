@@ -56,7 +56,6 @@ class AircraftsController < ApplicationController
   # POST /aircrafts
   # POST /aircrafts.xml
   def create
-    debugger
     @aircraft = Aircraft.new(params[:aircraft])
 
     respond_to do |format|
