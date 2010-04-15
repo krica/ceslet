@@ -2,6 +2,9 @@ class RolesController < ApplicationController
   
   include AuthenticatedSystem
   layout 'ceslet'
+  
+  before_filter :only_admin  
+  
   # GET /roles
   # GET /roles.xml
   def index
@@ -85,4 +88,5 @@ class RolesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 end

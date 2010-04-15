@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet' 
 
-  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update, :main] 
+  before_filter :login_required 
   def main
     
   end
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
   def index
     only_admin
-    @users = User.find(:all)
+    @users = User.find(:all, :order => :lastname)
   end
 
   def edit
@@ -89,14 +89,4 @@ class UsersController < ApplicationController
     end
   end
     
-
-  private
-
-  def only_admin
-    if !current_user.has_role?("admin")
-      flash[:notice] = t('No_right')
-      redirect_to "/"
-    end
-  end
-
 end

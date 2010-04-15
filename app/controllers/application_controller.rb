@@ -8,4 +8,14 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  
+  private
+
+  def only_admin
+    if !current_user.has_role?("admin")
+      flash[:notice] = t('No_right')
+      redirect_to "/"
+    end
+  end
 end

@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet' 
 
+  before_filter :only_admin 
   # GET /groups
   # GET /groups.xml
   def index
@@ -87,4 +88,5 @@ class GroupsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 end
