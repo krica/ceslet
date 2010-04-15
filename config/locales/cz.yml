@@ -105,3 +105,25 @@ cz:
   Editing classification: Úprava klasifikace
   Classification created: Klasifikace byla úspěšně vytvořena.
   Classification updated: Klasifikace byla úspěšně upravena.
+  Listing certification_fee_ones: Certifikační poplatky I
+  Certification fee_ones: Certifikační poplatky I
+  Kind: Druh
+  Certification_fee_ones: Certifikační poplatky I
+  New certification_fee_one: Nový certifikační poplatek I
+  Editing certification_fee_one: Úprava certifikačního poplatku I
+  Value: Hodnota - EUR
+  mtow 1: Nad 5,7 do 22 tun
+  mtow 2: Nad 2 do 5,7 tuny
+  mtow 3: Do 2 tun
+  mtow 4: Velký
+  mtow 5: Střední
+  mtow 6: Malý
+  fee type 1: Complex
+  fee type 2: Standard
+  fee type 3: Simple
+  kind 1: letoun
+  kind 2: vrtulník
+  Certification fee one: Certifikační poplatek I
+  Certification fee one updated: Certifikační poplatek I úspěšně upraven.
+  Certification fee one created: Certifikační poplatek I úspěšně vytvořen.
+  Value eur: Hodnota - EUR

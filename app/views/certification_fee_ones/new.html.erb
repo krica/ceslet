@@ -1,0 +1,32 @@
+<h1><%= t('New certification_fee_one') %></h1>
+
+<% form_for(@certification_fee_one) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('Mtow kg') %><br />
+    <%= f.select :mtow_kg, [t('mtow 1'), t('mtow 2'), t('mtow 3'), t('mtow 4'), t('mtow 5'), t('mtow 6')] %>
+  </p>
+  <p>
+    <%= f.label t('Type') %><br />
+    <%= f.select :fee_type, [t('fee type 1'), t('fee type 2'), t('fee type 3')] %>
+  </p>
+  <p>
+    <%= f.label t('Kind') %><br />
+    <%= f.select :kind, [t('kind 1'), t('kind 2')] %>
+  </p>
+  <p>
+    <%= f.label t('Active') %><br />
+    <%= f.check_box :active, :checked => true %>
+  </p>
+  <p>
+    <%= f.label t('Value') %><br />
+    <%= f.text_field :value %>
+  </p>
+
+  <p>
+    <%= f.submit t('Create'), :class => "fg-button to-btn" %>
+  </p>
+<% end %>
+
+<%= back_link(certification_fee_ones_path) %>

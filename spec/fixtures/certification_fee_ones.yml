@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mtow_kg: MyString
+  type: MyString
+  weight_category: MyString
+  active: false
+
+two:
+  mtow_kg: MyString
+  type: MyString
+  weight_category: MyString
+  active: false

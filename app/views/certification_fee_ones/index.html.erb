@@ -1,0 +1,30 @@
+<h1><%= t('Certification_fee_ones') %></h1>
+
+<table>
+  <tr>
+    <th><%= t('Mtow kg') %></th>
+    <th><%= t('Type') %></th>
+    <th><%= t('Kind') %></th>
+    <th><%= t('Active') %></th>
+    <th><%= t('Value eur') %></th>
+  </tr>
+
+<% @certification_fee_ones.each do |certification_fee_one| %>
+  <tr>
+    <td><%=h certification_fee_one.mtow_kg %></td>
+    <td><%=h certification_fee_one.fee_type %></td>
+    <td><%=h certification_fee_one.kind %></td>
+    <td><%=h certification_fee_one.active %></td>
+    <td><%=h certification_fee_one.value %></td>
+    <td>
+      <%= link_to t('Show'), certification_fee_one, :class => "fg-btn-small to-btn" %>
+      <%= link_to t('Edit'), edit_certification_fee_one_path(certification_fee_one), :class => "fg-btn-small to-btn" %>
+      <%= link_to t('Destroy'), certification_fee_one, :confirm => 'Are you sure?', :method => :delete, :class => "fg-btn-small to-btn" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('New certification_fee_one'), new_certification_fee_one_path, :class => "fg-button to-btn" %>
