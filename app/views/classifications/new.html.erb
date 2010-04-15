@@ -1,0 +1,19 @@
+<h1><%= t('New classification') %></h1>
+
+<% form_for(@classification) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('Name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label t('Abbreviation') %><br />
+    <%= f.text_field :abbreviation %>
+  </p>
+  <p>
+  <%= f.submit t('Create'), :class => "fg-button to-btn" %>
+  </p>
+<% end %>
+
+<%= back_link(classifications_path) %>

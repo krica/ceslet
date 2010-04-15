@@ -1,0 +1,25 @@
+<h1><%= t('Classifications') %></h1>
+
+<table>
+  <tr>
+    <th><%= t('Name') %></th>
+    <th><%= t('Abbreviation') %></th>
+    <th></th>
+  </tr>
+
+<% @classifications.each do |classification| %>
+  <tr>
+    <td><%=h classification.name %></td>
+    <td><%=h classification.abbreviation %></td>
+    <td>
+      <%= link_to t('Show'), classification, :class => "fg-btn-small to-btn" %>
+      <%= link_to t('Edit'), edit_classification_path(classification), :class => "fg-btn-small to-btn" %>
+      <%= link_to t('Destroy'), classification, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('New classification'), new_classification_path, :class => "fg-button to-btn" %>

@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :classifications
+
+  map.resources :certification_fee_ones
+
   map.resources :companies
 
   map.resources :aircrafts
