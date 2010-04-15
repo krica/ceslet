@@ -38,11 +38,11 @@
   </p>
   <p>
     <%= f.label t('Operator') %><br />
-    <%= f.text_field :operator_id %>
+    <%= f.select :operator_id, [""] + Company.find(:all).map {|c| [c.name, c.id]}  %>
   </p>
   <p>
     <%= f.label t('Owner') %><br />
-    <%= f.text_field :owner_id %>
+    <%= f.select :owner_id, [""] + Company.find(:all).map {|c| [c.name, c.id]} %>
   </p>
   <p>
   <%= f.submit t('Update'), :class => "fg-button to-btn" %>
