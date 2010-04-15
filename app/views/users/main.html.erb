@@ -1,6 +1,12 @@
 <div class="box fullwidth left">
   <p>
-  <%= link_to_with_icon('wrench',t('Aircraft models') ,{:controller => :aircraft_models, :action => :index}, :class=>"fg-button  to-btn") %>
+    <%= link_to_with_icon('wrench',t('Aircrafts') ,{:controller => :aircrafts, :action => :index}, :class=>"fg-button  to-btn") %>
+  </p>
+  <p>
+    <%= link_to_with_icon('wrench',t('Aircraft models') ,{:controller => :aircraft_models, :action => :index}, :class=>"fg-button  to-btn") %>
+  </p>
+  <p>
+    <%= link_to_with_icon('wrench',t('Aircraft types main') ,{:controller => :aircraft_types, :action => :index}, :class=>"fg-button  to-btn") %>
   </p>
   <p>
     <%= link_to_with_icon('wrench',t('Admin users') ,{:action => :index}, :class=>"fg-button  to-btn") %>

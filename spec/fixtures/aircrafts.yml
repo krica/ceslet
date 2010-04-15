@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  serial_number: MyString
+  matriculation: MyString
+  active: false
+  operator_id: 1
+  owner_id: 
+
+two:
+  serial_number: MyString
+  matriculation: MyString
+  active: false
+  operator_id: 1
+  owner_id: 

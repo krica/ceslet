@@ -1,0 +1,89 @@
+<h1><%= t('New aircraft model') %></h1>
+
+<div id="add-type" style="display: none;">
+  <fieldset>
+  <h1><%= t('Add new type') %></h1>
+  <%= form_remote_tag(:update => "type-select", :url => {:controller => :aircrafts, :action => :remote_create_type}, :success => "$('#add-type').slideUp('fast');$('#add-type-link').show();" ) %>
+      <p>
+        <%= t('Name') %><br />
+        <%= text_field_tag :name %>
+      </p>
+      <%= submit_tag t('Create'), :class => "fg-button to-btn" %>
+    </form>
+    <br />
+    <p>
+      <%= hide_add_type_link %>
+    </p>
+</fieldset>
+<br />
+<br />
+</div>
+<div id="add-model">
+  <fieldset>
+  <%= form_remote_tag(:update => "select-model-type", :url => {:controller => :aircraft_models, :action => :remote_create}, :success => "$('#add-model').slideUp('fast');$('#add-model-link').show();" ) %>
+
+  <p>
+    <%= t('Name') %><br />
+    <%= text_field_tag :name %>
+  </p>
+  <p>
+    <%= t('Type') %><br />
+    <span id="type-select">
+      <%= model_select_type %>
+    </span> 
+    &nbsp&nbsp
+    <%= add_type_link %>
+  </p>
+
+  <p>
+    <%= t('Tcds') %><br />
+    <%= text_field_tag :tcds %>
+  </p>
+  <p>
+    <%= t('Supplementary_indications') %><br />
+    <%= text_field_tag :supplementary_indications %>
+  </p>
+  <p>
+    <%= t('Mtow kg') %><br />
+    <%= text_field_tag :mtow_kg %>
+  </p>
+  <p>
+    <%= t('Speed vno') %><br />
+    <%= text_field_tag :speed_vno %>
+  </p>
+  <p>
+    <%= t('Speed vne') %><br />
+    <%= text_field_tag :speed_vne %>
+  </p>
+  <p>
+    <%= t('Speed vmin') %><br />
+    <%= text_field_tag :speed_vmin %>
+  </p>
+  <p>
+    <%= t('Original regulation basis') %><br />
+    <%= text_field_tag :original_regulation_basis %>
+  </p>
+  <p>
+    <%= t('Number of passengers') %><br />
+    <%= text_field_tag :number_of_passengers %>
+  </p>
+  <p>
+    <%= t('Number of engines') %><br />
+    <%= text_field_tag :number_of_engines %>
+  </p>
+  <p>
+    <%= t('Engine type') %><br />
+    <%= text_field_tag :engine_type %>
+  </p>
+  <p>
+  <%= submit_tag t('Create'), :class => 'fg-button to-btn' %>
+  </p>
+
+
+</form>
+    <br />
+    <p>
+      <%= hide_add_model_link %>
+    </p>
+</fieldset>
+</div>

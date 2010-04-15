@@ -1,8 +1,28 @@
 class AircraftModelsController < ApplicationController
   include AuthenticatedSystem
-  layout 'ceslet' 
+  layout 'ceslet', :except => :remote_create 
 
   before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update] 
+
+  def remote_create
+    @aircraft_model = AircraftModel.new()
+    @aircraft_model.name = params[:name]
+    @aircraft_model.aircraft_type_id = params[:partial][:aircraft_type_id]
+    @aircraft_model.tcds = params[:tcds]
+    @aircraft_model.supplementary_indications = params[:supplementary_indications]
+    @aircraft_model.mtow_kg = params[:mtow_kg]
+    @aircraft_model.speed_vno = params[:speed_vno]
+    @aircraft_model.speed_vne = params[:speed_vne]
+    @aircraft_model.speed_vmin = params[:speed_vmin]
+    @aircraft_model.original_regulation_basis = params[:original_regulation_basis]
+    @aircraft_model.number_of_passengers = params[:number_of_passengers]
+    @aircraft_model.number_of_engines = params[:number_of_engines]
+    @aircraft_model.engine_type = params[:engine_type]
+
+    @aircraft_model.save
+    @aircraft_models = AircraftModel.find(:all)
+  end
+
   # GET /aircraft_models
   # GET /aircraft_models.xml
   def index
@@ -29,7 +49,6 @@ class AircraftModelsController < ApplicationController
   # GET /aircraft_models/new.xml
   def new
     @aircraft_model = AircraftModel.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @aircraft_model }

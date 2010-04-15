@@ -1,0 +1,51 @@
+<h1><%= t('New aircraft') %></h1>
+<div id="add-model" style="display: none;">
+  <%= render :partial => "model" %>
+</div>
+
+
+<% form_for(@aircraft) do |f| %>
+  <%= f.error_messages %>
+
+    <span id="select-model-type">
+  <p>
+    <%= f.label t('Type') %><br />
+    <%= type_select %>
+  </p>  
+  <p>
+    <%= f.label t('Model') %><br />
+    <span id="select-model-new">
+      <%= f.select :aircraft_model_id, AircraftModel.find(:all, :conditions => {:aircraft_type_id => AircraftType.first.id}).map {|t| [t.name, t.id]} %>
+    </span>
+    </span>
+  <p>
+    <%= add_model_link %>
+  </p>  
+  </p>
+  <p>
+    <%= f.label t('Serial number') %><br />
+    <%= f.text_field :serial_number %>
+  </p>
+  <p>
+    <%= f.label t('Matriculation') %><br />
+    <%= f.text_field :matriculation %>
+  </p>
+    
+  <p>
+    <%= f.label t('Active') %><br />
+    <%= f.check_box :active, :checked => true %>
+  </p>
+  <p>
+    <%= f.label t('Operator') %><br />
+    <%= f.text_field :operator_id %>
+  </p>
+  <p>
+    <%= f.label t('Owner') %><br />
+    <%= f.text_field :owner_id %>
+  </p>
+  <p>
+  <%= f.submit t('Create'), :class => "fg-button to-btn" %>
+  </p>
+<% end %>
+
+<%= back_link(aircrafts_path) %>

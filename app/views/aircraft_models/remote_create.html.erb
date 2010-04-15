@@ -1,0 +1,18 @@
+<p>
+  <%= t('Type') %><br />
+  <%= type_select_new(@aircraft_model.aircraft_type) %>
+</p> 
+<p>    
+<%= t('Model') %><br />
+    <span id="select-model-new">
+<select id="aircraft_aircraft_model_id" name="aircraft[aircraft_model_id]">
+  <% @aircraft_models.each do |model| %>
+  <% if model == @aircraft_model %>
+    <option value="<%= model.id %>" selected="true"><%= model.name %></option>
+  <% else %>
+    <option value="<%= model.id %>"><%= model.name %></option>
+  <% end %>
+  <% end %>
+</select>
+    </span>
+</p>
