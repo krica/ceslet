@@ -1,8 +1,12 @@
 jQuery(document).ready(function() {
    changeLink(); 
    hideNotice();
+   datePicker();
 });
 
+function datePicker(){
+  jQuery(".datepicker").datepicker();
+}
 function changeLink(){
     jQuery(".to-btn").button();
 }

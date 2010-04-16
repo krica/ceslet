@@ -1,0 +1,103 @@
+<h1><%= t('New offer') %></h1>
+
+<% form_for(@offer) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('Aircraft') %><br />
+    <%= aircraft_select %>
+  </p>
+  <p>
+    <%= f.label t('Order number') %><br />
+    <%= f.text_field :order_number %>
+  </p>
+  <p>
+    <%= f.label t('Responsible_person_bussiness') %><br />
+    <%= f.select :responsible_person_bussiness, User.all.map {|u| [u.display_name, u.id]} %>
+  </p>
+  <p>
+    <%= f.label t('Requirement acceptance') %><br />
+    <%= f.text_field :requirement_acceptance, :class => "datepicker" %>
+  </p>
+  <p>
+    <%= f.label t('Handover basis ou') %><br />
+    <%= f.text_field :handover_basis_ou, :class => "datepicker" %>
+  </p>
+  <p>
+    <%= f.label t('Offer verification ou') %><br />
+    <%= f.text_field :offer_verification_ou, :class => "datepicker" %>
+  </p>
+  <p>
+    <%= f.label t('Basis processer') %><br />
+    <%= f.select :basis_processer_id, User.all.map {|u| [u.display_name, u.id]} %>
+  </p>
+  <p>
+    <%= f.label t('Classification approval') %><br />
+    <%= f.select :classification_approval_id, User.all.map {|u| [u.display_name, u.id]} %>
+  </p>
+  <p>
+    <%= f.label t('Basis approval') %><br />
+    <%= f.select :basisi_approval_id, User.all.map {|u| [u.display_name, u.id]} %>
+  </p>
+  <p>
+    <%= f.label t('Short description') %><br />
+    <%= f.text_area :short_description %>
+  </p>
+  <p>
+    <%= f.label t('Original status') %><br />
+    <%= f.text_area :original_status %>
+  </p>
+  <p>
+    <%= f.label t('Dismount equipment description') %><br />
+    <%= f.text_area :dismount_equipment_description %>
+  </p>
+  <p>
+    <%= f.label t('General comments') %><br />
+    <%= f.text_area :general_comments %>
+  </p>
+  <p>
+    <%= f.label t('Important comments') %><br />
+    <%= f.text_area :important_comments %>
+  </p>
+  <p>
+    <%= f.label t('Current visibility') %><br />
+    <%= f.select :current_visibility, [[t('Ifr'), 'Ifr'],[t('Vfr'), 'Vfr']] %>
+  </p>
+  <p>
+    <%= f.label t('Current visibility type') %><br />
+    <%= current_visibility_type_select %>
+    <%= text_field_tag :current_visibility_type_other %>
+  </p>
+  <p>
+    <%= f.label t('Planned visibility') %><br />
+    <%= f.select :planned_visibility, [[t('Ifr'), 'Ifr'], [t('Vfr'), 'Vfr']]  %>
+  </p>
+  <p>
+    <%= f.label t('Planned visibility type') %><br />
+    <%= planned_visibility_type_select %>
+    <%= text_field_tag :current_visibility_type_other %>
+  </p>
+  <p>
+    <%= f.label t('Regulation basis') %><br />
+    <%= f.select :regulation_basis_id, RegulationBasis.find(:all).map {|rb| [rb.name, rb.id]} %>
+  </p>
+  <p>
+    <%= f.label t('Classification') %><br />
+    <%= f.select :classification_id, Classification.find(:all).map {|c| [c.name, c.id]} %>
+  </p>
+  <p>
+    <%= f.label t('Certification fee one') %><br />
+    <%= cer_fee_one %>
+    <br />
+  </p>
+  <p>
+    <%= f.label t('Certification fee twos') %><br />
+    <%= cer_fee_twos %>
+  </p>
+    <br />
+  <p>
+  <%= f.submit t('Create'), :class => "fg-button to-btn" %>
+  </p>
+<% end %>
+
+<%= back_link(offers_path) %>

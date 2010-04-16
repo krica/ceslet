@@ -1,0 +1,47 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  aircraft_id: 1
+  order_number: MyString
+  responsible_person_bussiness: 1
+  requirement_acceptance: 2010-04-16 16:15:26
+  handover_basis_ou: 2010-04-16 16:15:26
+  offer_verification_ou: 2010-04-16 16:15:26
+  basis_processer_id: 1
+  classification_approval_id: 1
+  basisi_approval_id: 1
+  short_description: MyString
+  original_status: MyString
+  dismount_equipment_description: MyString
+  general_comments: MyString
+  important_comments: MyString
+  current_visibility: MyString
+  current_visibility_type: MyString
+  planned_visibility: MyString
+  planned_visibility_type: MyString
+  regulation_basis_id: 1
+  classification_id: 1
+  certification_fee_one_id: 1
+
+two:
+  aircraft_id: 1
+  order_number: MyString
+  responsible_person_bussiness: 1
+  requirement_acceptance: 2010-04-16 16:15:26
+  handover_basis_ou: 2010-04-16 16:15:26
+  offer_verification_ou: 2010-04-16 16:15:26
+  basis_processer_id: 1
+  classification_approval_id: 1
+  basisi_approval_id: 1
+  short_description: MyString
+  original_status: MyString
+  dismount_equipment_description: MyString
+  general_comments: MyString
+  important_comments: MyString
+  current_visibility: MyString
+  current_visibility_type: MyString
+  planned_visibility: MyString
+  planned_visibility_type: MyString
+  regulation_basis_id: 1
+  classification_id: 1
+  certification_fee_one_id: 1

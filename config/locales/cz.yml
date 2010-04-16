@@ -123,7 +123,7 @@ cz:
   fee type 3: Simple
   kind 1: letoun
   kind 2: vrtulník
-  Certification fee one: Certifikační poplatek I
+  Certification fee one: "Certifikační poplatek &#73"
   Certification fee one updated: Certifikační poplatek I úspěšně upraven.
   Certification fee one created: Certifikační poplatek I úspěšně vytvořen.
   Value eur: Hodnota - EUR
@@ -134,7 +134,7 @@ cz:
   Regulation basis updated: Předpisová základna byla úspěšně upravena.
   Regulation basis created: Předpisová základna byla úspěšně vytvořena.
   Regulation basis: Předpisová základna
-  Certification fee twos: Certifikační poplatky II
+  Certification fee twos: "Certifikační poplatky &#73&#73"
   Certification fee two: Certifikační poplatek II
   New certification fee two: Nový certifikační poplatek II
   Editing certification fee two: Úprava certifikačního poplatku II
@@ -142,3 +142,30 @@ cz:
   Date: Datum
   Certification fee two updated: Certifikační poplatek II byl úspěšně upraven.
   Certification fee two created: Certifikační poplatek II byl úspěšně vytvořen.
+  New offer: Nová nabídka
+  Order number: Číslo nabídky
+  Vfr: "VFR"
+  Ifr: "IFR"
+  visibility 1: L6/II
+  visibility 2: "EU-OPS1"
+  visibility 3: Jiné (uveďte)
+  Responsible_person_bussiness: Zodpovědná osoba obchodní úsek
+  Requirement acceptance: Datum přijetí požadavku
+  Handover basis ou: Datum předání požadavků do OÚ
+  Offer verification ou: Datum kontroly nabídky OÚ
+  Basis processer: Zpracovatel podkladů
+  Classification approval: Schválení klasifikace
+  Basis approval: Schválení podkladů
+  Short description: Krátký popis
+  Original status: Výchozí stav
+  Dismount equipment description: Popis demontovaných zařízení
+  General comments: Obecné poznámky
+  Important comments: Důležité  poznámky
+  Current visibility: Současný způsob provozu
+  Current visibility type: Doplňková informace o druhu provozu
+  Planned visibility: Požadovaný způsob provozu po zástavbě
+  Planned visibility type: Doplňková informace o druhu provozu po zástavbě
+  Editing offer: Úprava nabídky
+
+
+

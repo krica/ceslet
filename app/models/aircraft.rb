@@ -4,6 +4,22 @@ class Aircraft < ActiveRecord::Base
   belongs_to :aircraft_model
 
 
+  #returns type and model name
+  def name
+    ret = ""
+    if self.aircraft_model
+      if self.aircraft_model.aircraft_type
+        ret << self.aircraft_model.aircraft_type.name
+        ret << " "
+        ret << self.aircraft_model.name
+      else
+        ret << self.aircraft_model.name
+      end
+    end
+    ret << " - " + self.matriculation
+    return ret
+  end
+
   #returns operator company name if present
   def operator_name
     if self.operator_id && @operator = Company.find(self.operator_id)

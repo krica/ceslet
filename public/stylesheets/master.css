@@ -138,6 +138,11 @@ td
   padding: 3px 5px 3px 5px;
 }
 
+textarea
+{
+  height: 50px;
+}
+
 .right-box 
 {
   margin-right: 200px;
@@ -162,5 +167,23 @@ fieldset{
 	padding: 15px;
 	border: 1px solid #efefef;
 	background-color: #fbfbfb;
+}
+
+table#cer-fee-one {
+  background-color: #EAF4FD;
+}
+table#cer-fee-one .left-side {
+  border-right: 0px solid #C5DBEC; 
+}
+table#cer-fee-one th {
+  border-bottom: 3px solid #C5DBEC; 
+  padding: 5px;
+  min-width: 100px; 
+  border-right: 3px solid #C5DBEC;
+}
+table#cer-fee-one td {
+  vertical-align: middle;
+  border-right: 3px solid #C5DBEC;
+  border-top: 3px solid #C5DBEC;
 }
 
