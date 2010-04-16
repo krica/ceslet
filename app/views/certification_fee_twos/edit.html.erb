@@ -1,0 +1,28 @@
+<h1><%= t('Editing certification fee two') %></h1>
+
+<% form_for(@certification_fee_two) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('Kind') %><br />
+    <%= f.text_field :kind %>
+  </p>
+  <p>
+    <%= f.label t('Description') %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label t('Date') %><br />
+    <%= f.text_field :date, :class => "datepicker" %>
+  </p>
+  <p>
+    <%= f.label t('Active') %><br />
+    <%= f.check_box :active %>
+  </p>
+  <p>
+  <%= f.submit t('Update'), :class => "fg-button to-btn" %>
+  </p>
+<% end %>
+
+<%= back_link(certification_fee_twos_path) %>
+<%= link_to t('Show'), @certification_fee_two, :class => "fg-button to-btn" %>

@@ -26,7 +26,7 @@ class AircraftModelsController < ApplicationController
   # GET /aircraft_models
   # GET /aircraft_models.xml
   def index
-    @aircraft_models = AircraftModel.all
+    @aircraft_models = AircraftModel.all(:order => :name)
 
     respond_to do |format|
       format.html # index.html.erb

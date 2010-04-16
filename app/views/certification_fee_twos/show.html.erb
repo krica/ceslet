@@ -1,0 +1,24 @@
+<h1><%= t('Certification fee two') %></h1>
+<p>
+  <b><%= t('Kind') %>:</b>
+  <%=h @certification_fee_two.kind %>
+</p>
+
+<p>
+  <b><%= t('Description') %>:</b>
+  <%=h @certification_fee_two.description %>
+</p>
+
+<p>
+  <b><%= t('Date') %>:</b>
+  <%=h @certification_fee_two.date %>
+</p>
+
+<p>
+<b><%= t('Active') %>:</b>
+  <%=h @certification_fee_two.active %>
+</p>
+
+
+<%= back_link(certification_fee_twos_path) %>
+<%= link_to t('Edit'), edit_certification_fee_two_path(@certification_fee_two), :class => "fg-button to-btn" %>
