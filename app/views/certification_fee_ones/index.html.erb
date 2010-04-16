@@ -11,9 +11,9 @@
 
 <% @certification_fee_ones.each do |certification_fee_one| %>
   <tr>
-    <td><%=h certification_fee_one.mtow_kg %></td>
-    <td><%=h certification_fee_one.fee_type %></td>
-    <td><%=h certification_fee_one.kind %></td>
+    <td><%=h t(certification_fee_one.mtow_kg) %></td>
+    <td><%=h t(certification_fee_one.fee_type) %></td>
+    <td><%=h t(certification_fee_one.kind) %></td>
     <td><%=h certification_fee_one.active %></td>
     <td><%=h certification_fee_one.value %></td>
     <td>

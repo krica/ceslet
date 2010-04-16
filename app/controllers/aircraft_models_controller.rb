@@ -2,7 +2,7 @@ class AircraftModelsController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet', :except => :remote_create 
 
-  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update, :remote_create] 
+  before_filter :login_required 
 
   def remote_create
     @aircraft_model = AircraftModel.new()

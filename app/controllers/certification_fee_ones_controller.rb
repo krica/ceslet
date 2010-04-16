@@ -60,7 +60,6 @@ class CertificationFeeOnesController < ApplicationController
   # PUT /certification_fee_ones/1
   # PUT /certification_fee_ones/1.xml
   def update
-    debugger
     @certification_fee_one = CertificationFeeOne.find(params[:id])
     respond_to do |format|
       if @certification_fee_one.update_attributes(params[:certification_fee_one])
