@@ -24,19 +24,21 @@ body{
   margin-top: 11px;
 }
 
-#head ul#login-button {
+#head ul#login-menu {
   float: right;
-  margin-right: 20px;
   margin-top: 20px;
+  margin-right: 25px;
 }
 
-#head ul#login-button li {
+#head ul#login-menu li {
   display: inline;
-  padding-left: 5px;
+  padding-left: 10px;
+  float: right;
 }
 
 #head #display-login
 {
+  line-height: 2em;
   font-size: 1.1em;
 }
 
