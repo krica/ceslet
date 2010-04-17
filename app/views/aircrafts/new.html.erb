@@ -7,17 +7,17 @@
 <% form_for(@aircraft) do |f| %>
   <%= f.error_messages %>
 
-    <span id="select-model-type">
+    <div id="select-model-type">
   <p>
     <%= f.label t('Type') %><br />
     <%= type_select %>
   </p>  
   <p>
     <%= f.label t('Model') %><br />
-    <span id="select-model-new">
+    <div id="select-model-new">
       <%= f.select :aircraft_model_id, AircraftModel.find(:all, :conditions => {:aircraft_type_id => AircraftType.first.id}).map {|t| [t.name, t.id]} %>
-    </span>
-    </span>
+    </div>
+    </div>
   <p>
     <%= add_model_link %>
   </p>  
