@@ -1,5 +1,6 @@
 module UsersHelper
   
+  #renders destroy or no link depend its used in offer
   def user_destroy_link(user)
     count = 0
     Offer.all.each do |offer|
