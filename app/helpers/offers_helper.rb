@@ -80,7 +80,13 @@ module OffersHelper
   #returns checkboxes with certification fee twos
   def cer_fee_twos
     ret = ""
-    CertificationFeeTwo.find(:all, :conditions => {:active => true}).each do |fee|
+    @certification_fee_twos =  CertificationFeeTwo.find(:all, :conditions => {:active => true})
+    @offer.certification_fee_twos.each do |fee|
+      if !@certification_fee_twos.include?(fee)
+        @certification_fee_twos << fee
+      end
+    end
+    @certification_fee_twos.each do |fee|
       ret << '<input type="checkbox" name="certification_fee_twos[]" value="'
       ret << fee.id.to_s
       ret << '"'
