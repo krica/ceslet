@@ -17,6 +17,7 @@
     <div id="select-model-new">
       <%= f.select :aircraft_model_id, AircraftModel.find(:all, :conditions => {:aircraft_type_id => AircraftType.first.id}).map {|t| [t.name, t.id]} %>
     </div>
+    <br />
     </div>
   <p>
     <%= add_model_link %>
@@ -37,11 +38,11 @@
   </p>
   <p>
     <%= f.label t('Operator') %><br />
-    <%= f.select :operator_id, [""] + Company.find(:all).map {|c| [c.name, c.id]} %>
+    <%= f.select :operator_id, Company.find(:all).map {|c| [c.name, c.id]} %>
   </p>
   <p>
     <%= f.label t('Owner') %><br />
-    <%= f.select :owner_id, [""] + Company.find(:all).map {|c| [c.name, c.id]} %>
+    <%= f.select :owner_id, Company.find(:all).map {|c| [c.name, c.id]} %>
   </p>
   <p>
   <%= f.submit t('Create'), :class => "fg-button to-btn" %>

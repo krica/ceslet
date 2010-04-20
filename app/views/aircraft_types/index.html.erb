@@ -9,13 +9,13 @@
   <tr>
     <td><%=h aircraft_type.name %></td>
     <td>
-      <%= link_to t('Show'), aircraft_type, :class => "to-btn fg-btn-small" %>
-      <%= link_to t('Edit'), edit_aircraft_type_path(aircraft_type), :class => "to-btn fg-btn-small" %>
-      <%= link_to t('Destroy'), aircraft_type, :confirm => t('Are you sure'), :method => :delete, :class => "to-btn fg-btn-small" %>
+      <%= link_to_with_icon('search',t('Show') , aircraft_type, :class => "fg-btn-small to-btn") %>
+      <%= link_to_with_icon('pencil',t('Edit') , edit_aircraft_type_path(aircraft_type), :class => "fg-btn-small to-btn") %>
+      <%= type_destroy_link(aircraft_type) %>
     </td>
   </tr>
 <% end %>
 </table>
 
 <br />
-<%= link_to t('Add new type'), new_aircraft_type_path, :class => "fg-button to-btn" %>
+<%= link_to_with_icon('plus',t('Add new type') , new_aircraft_type_path, :class=>"fg-button  to-btn") %>

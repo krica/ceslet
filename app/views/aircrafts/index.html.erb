@@ -3,6 +3,8 @@
 <table>
   <tr>
     <th><%= t('Matriculation') %></th>
+    <th><%= t('Type') %></th>
+    <th><%= t('Model') %></th>
     <th><%= t('Serial number') %></th>
     <th></th>
   </tr>
@@ -10,11 +12,14 @@
 <% @aircrafts.each do |aircraft| %>
   <tr>
     <td><%=h aircraft.matriculation %></td>
+    <td><%=h aircraft.aircraft_model.aircraft_type.name %></td>
+    <td><%=h aircraft.aircraft_model.name %></td>
     <td><%=h aircraft.serial_number %></td>
     <td>
-      <%= link_to t('Show'), aircraft, :class => "fg-btn-small to-btn" %>
-      <%= link_to t('Edit'), edit_aircraft_path(aircraft), :class => "fg-btn-small to-btn" %>
-      <%= link_to t('Destroy'), aircraft, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn" %>
+      <%= link_to_with_icon('search',t('Show') , aircraft, :class => "fg-btn-small to-btn") %>
+      <%= link_to_with_icon('pencil',t('Edit') , edit_aircraft_path(aircraft), :class => "fg-btn-small to-btn") %>
+      <%= link_to_with_icon('trash',t('Destroy') , aircraft, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn") %>
+      <%= aircraft_destroy_link(aircraft) %>
   </td>
   </tr>
 <% end %>

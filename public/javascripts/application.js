@@ -1,6 +1,7 @@
 jQuery(document).ready(function() {
    changeLink(); 
    hideNotice();
+   Date.format = 'short';
    datePicker();
 });
 

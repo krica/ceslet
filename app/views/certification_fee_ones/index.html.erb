@@ -17,9 +17,9 @@
     <td><%=h certification_fee_one.active %></td>
     <td><%=h certification_fee_one.value %></td>
     <td>
-      <%= link_to t('Show'), certification_fee_one, :class => "fg-btn-small to-btn" %>
-      <%= link_to t('Edit'), edit_certification_fee_one_path(certification_fee_one), :class => "fg-btn-small to-btn" %>
-      <%= link_to t('Destroy'), certification_fee_one, :confirm => 'Are you sure?', :method => :delete, :class => "fg-btn-small to-btn" %>
+<%= link_to_with_icon('search',t('Show') ,  certification_fee_one, :class => "fg-btn-small to-btn") %>
+<%= link_to_with_icon('pencil',t('Edit') , edit_certification_fee_one_path(certification_fee_one), :class => "fg-btn-small to-btn") %>
+<%= link_to_with_icon('trash',t('Destroy') , certification_fee_one, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn") %>
     </td>
   </tr>
 <% end %>
@@ -27,4 +27,4 @@
 
 <br />
 
-<%= link_to t('New certification_fee_one'), new_certification_fee_one_path, :class => "fg-button to-btn" %>
+<%= link_to_with_icon('plus',t('New certification_fee_one') , new_certification_fee_one_path, :class=>"fg-button  to-btn") %>

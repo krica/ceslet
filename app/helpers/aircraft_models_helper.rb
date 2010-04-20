@@ -1,4 +1,19 @@
 module AircraftModelsHelper
+  
+  #return destroy link or not depends if its in aircraft
+  def model_destroy_link(aircraft_model)
+    c = 0
+    Aircraft.all.each do |aircraft|
+      if aircraft.aircraft_model_id == aircraft_model.id
+        c = c + 1
+      end
+    end
+    if c == 0
+      return link_to_with_icon('trash',t('Destroy') , aircraft_model, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn")
+    else
+      return link_to_with_icon('info',t('Aircrafts count') + " " + c.to_s ,"#", :class => "fg-btn-small to-btn ui-state-disabled")
+    end
+  end
 
   def add_type_link
     link_to t('Add new type'), "#", :id => 'add-type-link', :class => "fg-btn-small to-btn", :onclick => "$('#add-type').slideDown('fast');$(this).hide();"
