@@ -14,9 +14,9 @@
     <td><%=h company.ico %></td>
     <td><%=h company.dic %></td>
     <td>
-<%= link_to_with_icon('search',t('Show') , company, :class => "fg-btn-small to-btn") %>
-<%= link_to_with_icon('pencil',t('Edit') , edit_company_path(company), :class => "fg-btn-small to-btn") %>
-<%= link_to_with_icon('trash',t('Destroy') , company, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn") %>
+      <%= link_to_with_icon('search',t('Show') , company, :class => "fg-btn-small to-btn") %>
+      <%= link_to_with_icon('pencil',t('Edit') , edit_company_path(company), :class => "fg-btn-small to-btn") %>
+      <%= company_destroy_link(company) %>
     </td>
   </tr>
 <% end %>

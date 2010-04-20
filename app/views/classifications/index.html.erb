@@ -14,7 +14,7 @@
     <td>
       <%= link_to t('Show'), classification, :class => "fg-btn-small to-btn" %>
       <%= link_to t('Edit'), edit_classification_path(classification), :class => "fg-btn-small to-btn" %>
-      <%= link_to t('Destroy'), classification, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn" %>
+      <%= classification_destroy_link(classification) %>
     </td>
   </tr>
 <% end %>

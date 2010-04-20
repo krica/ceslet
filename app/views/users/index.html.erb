@@ -12,9 +12,9 @@
     <td><%=h user.display_name %></td>
     <td><%= user.login %></td>
     <td>
-<%= link_to_with_icon('search',t('Show') , user, :class => "fg-btn-small to-btn") %>
-<%= link_to_with_icon('pencil',t('Edit') , edit_user_path(user), :class => "fg-btn-small to-btn") %>
-<%= link_to_with_icon('trash',t('Destroy') , user, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn") %>
+      <%= link_to_with_icon('search',t('Show') , user, :class => "fg-btn-small to-btn") %>
+      <%= link_to_with_icon('pencil',t('Edit') , edit_user_path(user), :class => "fg-btn-small to-btn") %>
+      <%= user_destroy_link(user) %>
     </td>
   </tr>
 <% end %>
