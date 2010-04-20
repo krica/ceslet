@@ -42,7 +42,12 @@ module OffersHelper
 
   #returns select with active aircrafts
   def aircraft_select
-    select :offer, :aircraft_id, Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
+    if @offer.aircraft_id != nil
+      @aircraft = Aircraft.find(@offer.aircraft)
+      return select :offer, :aircraft_id, [@aircraft.name] + Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
+    else
+      return select :offer, :aircraft_id, Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
+    end
   end
   
   #returns table with certification fee one 
