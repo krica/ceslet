@@ -9,11 +9,11 @@
 <% @offers.each do |offer| %>
   <tr>
     <td><%=h offer.order_number %></td>
-    <td><%=h offer.aircraft_id %></td>
+    <td><%=h offer.aircraft.name %></td>
     <td>
-      <%= link_to t('Show'), offer, :class => "fg-btn-small to-btn" %>
-      <%= link_to t('Edit'), edit_offer_path(offer), :class => "fg-btn-small to-btn" %>
-      <%= link_to t('Destroy'), offer, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn" %>
+      <%= link_to_with_icon('search',t('Show') , offer, :class => "fg-btn-small to-btn") %>
+      <%= link_to_with_icon('pencil',t('Edit') , edit_offer_path(offer), :class => "fg-btn-small to-btn") %>
+      <%= link_to_with_icon('trash',t('Destroy') , offer, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn") %>
     </td>
   </tr>
 <% end %>
@@ -21,4 +21,4 @@
 
 <br />
 
-<%= link_to t('New offer'), new_offer_path, :class => "fg-button to-btn" %>
+<%= link_to_with_icon('plus',t('New offer') , new_offer_path, :class=>"fg-button  to-btn") %>

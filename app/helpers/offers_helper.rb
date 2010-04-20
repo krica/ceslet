@@ -1,5 +1,45 @@
 module OffersHelper
   
+  #prints or translate
+  def show_current_visibility_type
+    if @offer.current_visibility_type != "visibility 1" && @offer.current_visibility_type != "visibility 2"
+      return @offer.current_visibility_type
+    else
+      return t(@offer.current_visibility_type)
+    end
+  end
+
+  #prints or translate
+  def show_planned_visibility_type
+    if @offer.planned_visibility_type != "visibility 1" && @offer.planned_visibility_type != "visibility 2"
+      return @offer.planned_visibility_type
+    else
+      return t(@offer.planned_visibility_type)
+    end
+  end
+  
+  #returns filled or blank input current visibility type
+  def current_visibility_type
+    ret = ""
+    if @offer.current_visibility_type != "visibility 1" && @offer.current_visibility_type != "visibility 2"
+      ret << text_field_tag(:current_visibility_type_other, @offer.current_visibility_type)
+    else
+      ret << text_field_tag(:current_visibility_type_other)
+    end
+    return ret
+  end
+
+  #returns filled or blank input planned visibility type
+  def planned_visibility_type
+    ret = ""
+    if @offer.planned_visibility_type != "visibility 1" && @offer.planned_visibility_type != "visibility 2"
+      ret << text_field_tag(:planned_visibility_type_other, @offer.planned_visibility_type)
+    else
+      ret << text_field_tag(:planned_visibility_type_other)
+    end
+    return ret
+  end
+
   #returns select with active aircrafts
   def aircraft_select
     select :offer, :aircraft_id, Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
@@ -13,11 +53,23 @@ module OffersHelper
       ret << "<tr>"
       ret << "<td>#{t(fee.kind)}<br>#{t(fee.mtow_kg)}</td>"
       if fee.fee_type == 'fee type 1'
-        ret << "<td><input type='radio' name='offer[certification_fee_one_id]' value='#{fee.id.to_s}' />#{fee.value}</td><td></td><td class='left-side'></td>"
+        ret << "<td><input type='radio' name='offer[certification_fee_one_id]' value='#{fee.id.to_s}' "
+        if @offer.certification_fee_one_id != nil && fee == CertificationFeeOne.find(@offer.certification_fee_one_id)
+          ret << "checked"
+        end
+        ret << "/>#{fee.value}</td><td></td><td class='left-side'></td>"
       elsif fee.fee_type == 'fee type 2'
-        ret << "<td></td><td><input type='radio' name='offer[certification_fee_one_id]' value='#{fee.id.to_s}' />#{fee.value}</td><td class='left-side'></td>"
+        ret << "<td></td><td><input type='radio' name='offer[certification_fee_one_id]' value='#{fee.id.to_s}' "
+        if @offer.certification_fee_one_id != nil && fee == CertificationFeeOne.find(@offer.certification_fee_one_id)
+          ret << "checked"
+        end
+        ret << "/>#{fee.value}</td><td class='left-side'></td>"
       elsif fee.fee_type == 'fee type 3'
-        ret << "<td></td><td></td><td class='left-side'><input type='radio' name='offer[certification_fee_one_id]' value='#{fee.id.to_s}' />#{fee.value}</td>"
+        ret << "<td></td><td></td><td class='left-side'><input type='radio' name='offer[certification_fee_one_id]' value='#{fee.id.to_s}' "
+        if @offer.certification_fee_one_id != nil && fee == CertificationFeeOne.find(@offer.certification_fee_one_id)
+          ret << "checked"
+        end
+        ret << "/>#{fee.value}</td>"
       end
       ret << "</tr>"
     end
@@ -44,11 +96,19 @@ module OffersHelper
   
   #returns planned visibility type select
   def planned_visibility_type_select
-    select :offer, :planned_visibility_type, [[t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']]
+    if @offer.planned_visibility_type != "visibility 1" && @offer.planned_visibility_type != "visibility 2"
+    select :offer, :planned_visibility_type, [[t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']], :selected => "visibility 3"
+    else
+      select :offer, :planned_visibility_type, [[t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']]
+    end
   end
   
   #returns current visibility type select
   def current_visibility_type_select
-    select :offer, :current_visibility_type, [[t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']]
+    if @offer.current_visibility_type != "visibility 1" && @offer.current_visibility_type != "visibility 2"
+      select :offer, :current_visibility_type, [[t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']], :selected => "visibility 3" 
+    else
+      select :offer, :current_visibility_type, [[t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']]
+    end
   end
 end

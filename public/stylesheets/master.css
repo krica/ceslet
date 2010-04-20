@@ -61,9 +61,9 @@ body{
 }
 
 #wrapper {
-  width: 1090px;
+  width: 1065px;
   min-height: 400px;
-  padding-left: 20px;
+  padding-left: 30px;
   padding-top: 15px;
 }
 
@@ -102,6 +102,7 @@ a.fg-btn-small, span.fg-btn-small {
 }
 
 a.fg-btn-main, span.fg-btn-main {
+  margin-left: 10px;
   text-indent: 8px;
   text-align: left;
   width: 200px;
@@ -119,12 +120,22 @@ h1, h2, h3 {
 h1 
 {
   font-weight: bold;
-  line-height: 200%;
+  line-height: 180%;
   font-size: 180%;
   color: #1C94C4;
-  
+  border-bottom: 3px solid #C5DBEC;  
+  margin-bottom: 10px;
 }
 
+h2 
+{
+  font-weight: bold;
+  line-height: 170%;
+  font-size: 150%;
+  color: #1C94C4;
+  margin-bottom: 10px;
+  
+}
 p
 {
   padding-bottom: 10px;
@@ -189,3 +200,6 @@ table#cer-fee-one td {
   border-top: 3px solid #C5DBEC;
 }
 
+.date {
+  width: 75px;
+}

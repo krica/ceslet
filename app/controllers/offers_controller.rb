@@ -38,7 +38,7 @@ class OffersController < ApplicationController
   end
 
   # GET /offers/1/edit
-  def edit
+  def edit  
     @offer = Offer.find(params[:id])
   end
 
@@ -46,6 +46,12 @@ class OffersController < ApplicationController
   # POST /offers.xml
   def create
     @offer = Offer.new(params[:offer])
+    if params[:offer][:current_visibility_type] == "visibility 3"
+      @offer.current_visibility_type = params[:current_visibility_type_other]
+    end
+    if params[:offer][:planned_visibility_type] == "visibility 3"
+      @offer.planned_visibility_type = params[:planned_visibility_type_other]
+    end
     if params[:certification_fee_twos] != nil
       params[:certification_fee_twos].each do |id|
         @offer.certification_fee_twos << CertificationFeeTwo.find(id)
@@ -53,7 +59,7 @@ class OffersController < ApplicationController
     end
     respond_to do |format|
       if @offer.save
-        flash[:notice] = 'Offer was successfully created.'
+        flash[:notice] = t('Offer created')
         format.html { redirect_to(@offer) }
         format.xml  { render :xml => @offer, :status => :created, :location => @offer }
       else
@@ -67,10 +73,24 @@ class OffersController < ApplicationController
   # PUT /offers/1.xml
   def update
     @offer = Offer.find(params[:id])
+    @offer.certification_fee_twos.delete_all
+    if params[:certification_fee_twos] != nil
+      params[:certification_fee_twos].each do |id|
+        @offer.certification_fee_twos << CertificationFeeTwo.find(id)
+      end
+    end
 
     respond_to do |format|
       if @offer.update_attributes(params[:offer])
-        flash[:notice] = 'Offer was successfully updated.'
+      if params[:offer][:current_visibility_type] == "visibility 3"
+        @offer.current_visibility_type = params[:current_visibility_type_other]
+      @offer.save
+      end
+      if params[:offer][:planned_visibility_type] == "visibility 3"
+        @offer.planned_visibility_type = params[:planned_visibility_type_other]
+      @offer.save
+      end
+        flash[:notice] = t('Offer updated')
         format.html { redirect_to(@offer) }
         format.xml  { head :ok }
       else

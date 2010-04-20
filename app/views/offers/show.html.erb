@@ -1,108 +1,176 @@
-<p>
-  <b>Aircraft:</b>
-  <%=h @offer.aircraft_id %>
-</p>
+<h1><%= t('Offer') + " " + t('Number') + " " +  @offer.order_number %></h1>
+<h2><%=h @offer.aircraft.name %> <%= @offer.aircraft.serial_number %></h2>
+      
+<table>
+  <tr>
+    <td>
+      <b><%= t('Basis processer') %>:</b>
+    </td>
+    <td>
+      <%=h User.find(@offer.basis_processer_id).display_name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Classification approval') %>:</b>
+    </td>
+    <td>
+      <%=h User.find(@offer.classification_approval_id).display_name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Basis approval') %>:</b>
+    </td>
+    <td>
+      <%=h User.find(@offer.basisi_approval_id).display_name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Responsible_person_bussiness') %>:</b>
+    </td>
+    <td>
+      <%=h User.find(@offer.responsible_person_bussiness).display_name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Requirement acceptance') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.requirement_acceptance %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Handover basis ou') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.handover_basis_ou %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Offer verification ou') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.offer_verification_ou %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Regulation basis') %>:</b>
+    </td>
+    <td>
+      <%=h RegulationBasis.find(@offer.regulation_basis_id).name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Classification') %>:</b>
+    </td>
+    <td>
+      <%=h Classification.find(@offer.classification_id).name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Current visibility') %>:</b>
+    </td>
+    <td>
+      <%=h t(@offer.current_visibility) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Current visibility type') %>:</b>
+    </td>
+    <td>
+      <%=h show_current_visibility_type %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Planned visibility') %>:</b>
+    </td>
+    <td>
+      <%=h t(@offer.planned_visibility) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Planned visibility type') %>:</b>
+    </td>
+    <td>
+      <%=h show_planned_visibility_type %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Certification fee one') %>:</b>
+    </td>
+    <td>
+      <%=h CertificationFeeOne.find(@offer.certification_fee_one_id).display %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Certification fee twos') %>:</b><br />
+    </td>
+    <td>
+      <ul>
+        <% @offer.certification_fee_twos.each do |fee| %> 
+          <li>
+            <%=h fee.kind %>
+            <%= fee.description %>
+          </li>
+        <% end %>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Short description') %>:</b><br />
+    </td>
+    <td>
+      <%=h @offer.short_description %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Original status') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.original_status %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Dismount equipment description') %>:</b><br />
+    </td>
+    <td>
+      <%=h @offer.dismount_equipment_description %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('General comments') %>:</b><br />
+    </td>
+    <td>
+      <%=h @offer.general_comments %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Important comments') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.important_comments %>
+    </td>
+  </tr>
 
-<p>
-  <b>Order number:</b>
-  <%=h @offer.order_number %>
-</p>
-
-<p>
-  <b>Responsible person bussiness:</b>
-  <%=h @offer.responsible_person_bussiness %>
-</p>
-
-<p>
-  <b>Requirement acceptance:</b>
-  <%=h @offer.requirement_acceptance %>
-</p>
-
-<p>
-  <b>Handover basis ou:</b>
-  <%=h @offer.handover_basis_ou %>
-</p>
-
-<p>
-  <b>Offer verification ou:</b>
-  <%=h @offer.offer_verification_ou %>
-</p>
-
-<p>
-  <b>Basis processer:</b>
-  <%=h @offer.basis_processer_id %>
-</p>
-
-<p>
-  <b>Classification approval:</b>
-  <%=h @offer.classification_approval_id %>
-</p>
-
-<p>
-  <b>Basisi approval:</b>
-  <%=h @offer.basisi_approval_id %>
-</p>
-
-<p>
-  <b>Short description:</b>
-  <%=h @offer.short_description %>
-</p>
-
-<p>
-  <b>Original status:</b>
-  <%=h @offer.original_status %>
-</p>
-
-<p>
-  <b>Dismount equipment description:</b>
-  <%=h @offer.dismount_equipment_description %>
-</p>
-
-<p>
-  <b>General comments:</b>
-  <%=h @offer.general_comments %>
-</p>
-
-<p>
-  <b>Important comments:</b>
-  <%=h @offer.important_comments %>
-</p>
-
-<p>
-  <b>Current visibility:</b>
-  <%=h @offer.current_visibility %>
-</p>
-
-<p>
-  <b>Current visibility type:</b>
-  <%=h @offer.current_visibility_type %>
-</p>
-
-<p>
-  <b>Planned visibility:</b>
-  <%=h @offer.planned_visibility %>
-</p>
-
-<p>
-  <b>Planned visibility type:</b>
-  <%=h @offer.planned_visibility_type %>
-</p>
-
-<p>
-  <b>Regulation basis:</b>
-  <%=h @offer.regulation_basis_id %>
-</p>
-
-<p>
-  <b>Classification:</b>
-  <%=h @offer.classification_id %>
-</p>
-
-<p>
-  <b>Certification fee one:</b>
-  <%=h @offer.certification_fee_one_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_offer_path(@offer) %> |
-<%= link_to 'Back', offers_path %>
+</table>
+<br />
+<%= back_link(offers_path) %>
+<%= link_to t('Edit'), edit_offer_path(@offer), :class => "fg-button to-btn" %>
