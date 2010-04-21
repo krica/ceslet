@@ -43,8 +43,11 @@ module OffersHelper
   #returns select with active aircrafts
   def aircraft_select
     if @offer.aircraft_id != nil
-      @aircraft = Aircraft.find(@offer.aircraft)
-      return select :offer, :aircraft_id, [@aircraft.name] + Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
+      if !Aircraft.find(:all, :conditions => {:active => true}).include?(Aircraft.find(@offer.aircraft.id))
+        return select :offer, :aircraft_id, Aircraft.find_all_by_id(@offer.aircraft.id).map {|a| [a.name, a.id]} + Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
+      else
+        return select :offer, :aircraft_id, Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
+      end
     else
       return select :offer, :aircraft_id, Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
     end
@@ -54,7 +57,13 @@ module OffersHelper
   def cer_fee_one
     ret = "<table id='cer-fee-one'>"
     ret << "<tr><th></th><th>#{t('fee type 1')}</th><th>#{t('fee type 2')}</th><th class='left-side'>#{t('fee type 3')}</th></tr>"
-    CertificationFeeOne.find(:all, :conditions => {:active => true}).each do |fee|
+    @certification_fee_ones = CertificationFeeOne.find(:all, :conditions => {:active => true})
+    if @offer.certification_fee_one != nil
+      if !@certification_fee_ones.include?(@offer.certification_fee_one)
+        @certification_fee_ones << @offer.certification_fee_one
+      end
+    end
+    @certification_fee_ones.each do |fee|
       ret << "<tr>"
       ret << "<td>#{t(fee.kind)}<br>#{t(fee.mtow_kg)}</td>"
       if fee.fee_type == 'fee type 1'
