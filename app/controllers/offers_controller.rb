@@ -61,7 +61,7 @@ class OffersController < ApplicationController
         @offer.planned_visibility_type = params[:planned_visibility_type_other]
       @offer.save
       end
-        add_to_log(t('Created new offer no') + @offer.order_number,"offer","create")
+        add_to_log(t('Created new offer no') + @offer.order_number,"offers","create")
         flash[:notice] = t('Offer created')
         format.html { redirect_to(@offer) }
         format.xml  { render :xml => @offer, :status => :created, :location => @offer }
@@ -94,7 +94,7 @@ class OffersController < ApplicationController
       @offer.save
       end
         flash[:notice] = t('Offer updated')
-        add_to_log(t('Updated offer no') + @offer.order_number, "offer","update")
+        add_to_log(t('Updated offer no') + @offer.order_number, "offers","update")
         format.html { redirect_to(@offer) }
         format.xml  { head :ok }
       else
@@ -109,7 +109,7 @@ class OffersController < ApplicationController
   def destroy
     @offer = Offer.find(params[:id])
     @offer.destroy
-    add_to_log(t('Destroyed offer no') + @offer.order_number,"offer","destroy")
+    add_to_log(t('Destroyed offer no') + @offer.order_number,"offers","destroy")
     respond_to do |format|
       format.html { redirect_to(offers_url) }
       format.xml  { head :ok }

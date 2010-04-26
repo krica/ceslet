@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       handle_remember_cookie! new_cookie_flag
       redirect_back_or_default('/')
       flash[:notice] = t("Logged in successfully")
-      session_add_to_log(t('User succesfully logged in'),"session","new")
+      session_add_to_log(t('User succesfully logged in'),"sessions","new")
     else
       note_failed_signin
       @login       = params[:login]
@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session_add_to_log(t('User succesfully logged out'),"session","destroy")
+    session_add_to_log(t('User succesfully logged out'),"sessions","destroy")
     logout_killing_session!
     flash[:notice] = t("You have been logged out")
     redirect_back_or_default('/sessions/new')

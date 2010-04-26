@@ -180,8 +180,11 @@ cz:
   Created new offer no: "Vytvořena nová nabídka číslo: "
   Destroyed offer no: "Byla smazána nabídka číslo: " 
   Updated offer no: "Byla upravena nabídka číslo: "
-  User succesfully logged out: Uživatel se přihlásil
-  User succesfully logged in: Uživatel se odhlásil
+  User succesfully logged in: Uživatel se přihlásil
+  User succesfully logged out: Uživatel se odhlásil
+  Aircraft model created log: "Vytvořen model letadla "
+  Aircraft model updated log: "Upraven model letadla "
+  Aircraft model destroy log: "Smazán model letadla "
 
 
 

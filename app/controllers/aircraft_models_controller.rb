@@ -20,6 +20,7 @@ class AircraftModelsController < ApplicationController
     @aircraft_model.engine_type = params[:engine_type]
 
     @aircraft_model.save
+    add_to_log(t('Aircraft model created log') + @aircraft_model.name,"aircraft_models","create")
     @aircraft_models = AircraftModel.find(:all)
   end
 
@@ -67,6 +68,7 @@ class AircraftModelsController < ApplicationController
 
     respond_to do |format|
       if @aircraft_model.save
+        add_to_log(t('Aircraft model created log') + @aircraft_model.name,"aircraft_models","create")
         flash[:notice] = t('Aircaft model created')
         format.html { redirect_to(@aircraft_model) }
         format.xml  { render :xml => @aircraft_model, :status => :created, :location => @aircraft_model }
@@ -84,6 +86,7 @@ class AircraftModelsController < ApplicationController
 
     respond_to do |format|
       if @aircraft_model.update_attributes(params[:aircraft_model])
+        add_to_log(t('Aircraft model updated log') + @aircraft_model.name,"aircraft_models","update")
         flash[:notice] = t('Aircaft model updated')
         format.html { redirect_to(@aircraft_model) }
         format.xml  { head :ok }
@@ -99,6 +102,7 @@ class AircraftModelsController < ApplicationController
   def destroy
     @aircraft_model = AircraftModel.find(params[:id])
     @aircraft_model.destroy
+    add_to_log(t('Aircraft model destroy log') + @aircraft_model.name,"aircraft_models","destroy")
 
     respond_to do |format|
       format.html { redirect_to(aircraft_models_url) }
