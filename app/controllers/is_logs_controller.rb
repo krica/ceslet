@@ -8,7 +8,7 @@ class IsLogsController < ApplicationController
   # GET /is_logs
   # GET /is_logs.xml
   def index
-    @is_logs = IsLog.all
+    @is_logs = IsLog.all(:order => "created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb

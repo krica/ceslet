@@ -12,10 +12,12 @@ class ApplicationController < ActionController::Base
   
   private
   
-  def add_to_log(event)
+  def add_to_log(event, model_name = nil, action_name = nil)
     @log = IsLog.new()
     @log.event = event
     @log.user = current_user
+    @log.model_name = model_name
+    @log.action_name = action_name
     @log.save
   end
 

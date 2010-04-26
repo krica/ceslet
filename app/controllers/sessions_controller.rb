@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
       handle_remember_cookie! new_cookie_flag
       redirect_back_or_default('/')
       flash[:notice] = t("Logged in successfully")
+      session_add_to_log(t('User succesfully logged in'),"session","new")
     else
       note_failed_signin
       @login       = params[:login]
@@ -31,12 +32,24 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session_add_to_log(t('User succesfully logged out'),"session","destroy")
     logout_killing_session!
     flash[:notice] = t("You have been logged out")
     redirect_back_or_default('/sessions/new')
   end
 
 protected
+
+  
+  def session_add_to_log(event, model_name = nil, action_name = nil)
+    @log = IsLog.new()
+    @log.event = event
+    @log.user = self.current_user
+    @log.model_name = model_name
+    @log.action_name = action_name
+    @log.save
+  end
+
   # Track failed login attempts
   def note_failed_signin
     flash[:error] = "Couldn't log you in as '#{params[:login]}'"

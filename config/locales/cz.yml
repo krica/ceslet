@@ -177,7 +177,11 @@ cz:
   Log: System log
   Event: Událost
   Date: Čas
-  Created new offer no: "Vytvořena nová nabídka číslo: " 
+  Created new offer no: "Vytvořena nová nabídka číslo: "
+  Destroyed offer no: "Byla smazána nabídka číslo: " 
+  Updated offer no: "Byla upravena nabídka číslo: "
+  User succesfully logged out: Uživatel se přihlásil
+  User succesfully logged in: Uživatel se odhlásil
 
 
 
