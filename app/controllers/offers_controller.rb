@@ -46,12 +46,6 @@ class OffersController < ApplicationController
   # POST /offers.xml
   def create
     @offer = Offer.new(params[:offer])
-    if params[:offer][:current_visibility_type] == "visibility 3"
-      @offer.current_visibility_type = params[:current_visibility_type_other]
-    end
-    if params[:offer][:planned_visibility_type] == "visibility 3"
-      @offer.planned_visibility_type = params[:planned_visibility_type_other]
-    end
     if params[:certification_fee_twos] != nil
       params[:certification_fee_twos].each do |id|
         @offer.certification_fee_twos << CertificationFeeTwo.find(id)
@@ -59,6 +53,14 @@ class OffersController < ApplicationController
     end
     respond_to do |format|
       if @offer.save
+      if params[:offer][:current_visibility_type] == "visibility 3"
+        @offer.current_visibility_type = params[:current_visibility_type_other]
+      @offer.save
+      end
+      if params[:offer][:planned_visibility_type] == "visibility 3"
+        @offer.planned_visibility_type = params[:planned_visibility_type_other]
+      @offer.save
+      end
         add_to_log(t('Created new offer no') + @offer.order_number)
         flash[:notice] = t('Offer created')
         format.html { redirect_to(@offer) }
