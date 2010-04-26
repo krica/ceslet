@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
   
   
   private
+  
+  def add_to_log(event)
+    @log = IsLog.new()
+    @log.event = event
+    @log.user = current_user
+    @log.save
+  end
 
   def only_admin
     if !current_user.has_role?("admin")

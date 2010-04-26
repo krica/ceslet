@@ -1,0 +1,13 @@
+<p>
+  <b>Event:</b>
+  <%=h @is_log.event %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @is_log.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_is_log_path(@is_log) %> |
+<%= link_to 'Back', is_logs_path %>

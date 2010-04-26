@@ -1,0 +1,2 @@
+module IsLogsHelper
+end

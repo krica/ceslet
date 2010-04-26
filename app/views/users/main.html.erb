@@ -1,4 +1,12 @@
-<div class="box fullwidth left">
+<div class="box right-box">
+  <p>
+  <%= link_to_with_icon('script',t('Log') ,{:controller => :is_logs, :action => :index}, :class=>"fg-btn-main  to-btn") %>
+  </p>
+  <p>
+    <%= link_to_with_icon('person',t('Admin users') ,{:action => :index}, :class=>"fg-btn-main  to-btn") %>
+  </p>
+</div>
+<div class="box left">
   <p>
     <%= link_to_with_icon('wrench',t('Aircrafts') ,{:controller => :aircrafts, :action => :index}, :class=>"fg-btn-main  to-btn") %>
   </p>
@@ -22,8 +30,5 @@
   </p>
   <p>
     <%= link_to_with_icon('wrench',t('Regulation bases') ,{:controller => :regulation_bases, :action => :index}, :class=>"fg-btn-main  to-btn") %>
-  </p>
-  <p>
-    <%= link_to_with_icon('wrench',t('Admin users') ,{:action => :index}, :class=>"fg-btn-main  to-btn") %>
   </p>
 </div>

@@ -59,6 +59,7 @@ class OffersController < ApplicationController
     end
     respond_to do |format|
       if @offer.save
+        add_to_log(t('Created new offer no') + @offer.order_number)
         flash[:notice] = t('Offer created')
         format.html { redirect_to(@offer) }
         format.xml  { render :xml => @offer, :status => :created, :location => @offer }

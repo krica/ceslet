@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :is_logs
+
   map.resources :offers
 
   map.resources :certification_fee_twos
