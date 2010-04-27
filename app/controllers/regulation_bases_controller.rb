@@ -49,6 +49,7 @@ class RegulationBasesController < ApplicationController
 
     respond_to do |format|
       if @regulation_basis.save
+        add_to_log(t('Regulation basis create log') + @regulation_basis.name,"regulation_basis","create")
         flash[:notice] = t('Regulation basis created')
         format.html { redirect_to(@regulation_basis) }
         format.xml  { render :xml => @regulation_basis, :status => :created, :location => @regulation_basis }
@@ -66,6 +67,7 @@ class RegulationBasesController < ApplicationController
 
     respond_to do |format|
       if @regulation_basis.update_attributes(params[:regulation_basis])
+        add_to_log(t('Regulation basis updated log') + @regulation_basis.name,"regulation_basis","update")
         flash[:notice] = t('Regulation basis updated')
         format.html { redirect_to(@regulation_basis) }
         format.xml  { head :ok }
@@ -81,6 +83,7 @@ class RegulationBasesController < ApplicationController
   def destroy
     @regulation_basis = RegulationBasis.find(params[:id])
     @regulation_basis.destroy
+    add_to_log(t('Regulation basis destroy log') + @regulation_basis.name,"regulation_basis","destroy")
 
     respond_to do |format|
       format.html { redirect_to(regulation_bases_url) }

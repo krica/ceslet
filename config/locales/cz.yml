@@ -185,7 +185,35 @@ cz:
   Aircraft model created log: "Vytvořen model letadla "
   Aircraft model updated log: "Upraven model letadla "
   Aircraft model destroy log: "Smazán model letadla "
-
-
+  Aircraft type destroy log: "Smazán typ letadla "
+  Aircraft type updated log: "Upraven typ letadla "
+  Aircraft type created log: "Vytvořen typ letadla "
+  Cetrtification fee one created log: "Vytvořen certifikační poplatek I "
+  Cetrtification fee one updated log: "Upraven certifikační poplatek I "
+  Cetrtification fee one destroy log: "Smazán certifikační poplatek I "
+  Cetrtification fee two created log: "Vytvořen certifikační poplatek II "
+  Cetrtification fee two updated log: "Upraven certifikační poplatek II "
+  Cetrtification fee two destroy log: "Smazán certifikační poplatek II "
+  Company created log: "Vytvořena společnost "
+  Company updated log: "Upravena společnost "
+  Company destroy log: "Smazána společnost "
+  Classification created log: "Vytvořena klasifikace "
+  Classification updated log: "Upravena klasifikace "
+  Classification destroy log: "Smazána klasifikace "
+  Regulation basis create log: "Vytvořena předpisová základna "
+  Regulation basis updated log: "Upravena předpisová základna "
+  Regulation basis destroy log: "Smazána předpisová základna "
+  Aircraft created log: "Vytvořeno letadlo "
+  Aircraft updated log: "Upraveno letadlo "
+  Aircraft destroy log: "Smazáno letadlo "
+  User created log: "Vytvořen uživatel "
+  User updated log: "Upraven uživatel "
+  User destroy log: "Smazán uživatel "
+  Group destroy log: "Smazána skupina "
+  Group updated log: "Upravena skupina "
+  Group created log: "Vytvořena skupina "
+  previous: předchozí
+  next: další
+  
 
 

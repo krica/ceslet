@@ -18,7 +18,7 @@ class AircraftsController < ApplicationController
   # GET /aircrafts
   # GET /aircrafts.xml
   def index
-    @aircrafts = Aircraft.all(:order => :matriculation)
+    @aircrafts = Aircraft.paginate(:page => params[:page], :per_page => 12, :order => :matriculation)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -60,6 +60,7 @@ class AircraftsController < ApplicationController
 
     respond_to do |format|
       if @aircraft.save
+        add_to_log(t('Aircraft created log') + @aircraft.name,"aircrafts","create")
         flash[:notice] = t('Aircraft created')
         format.html { redirect_to(@aircraft) }
         format.xml  { render :xml => @aircraft, :status => :created, :location => @aircraft }
@@ -77,6 +78,7 @@ class AircraftsController < ApplicationController
 
     respond_to do |format|
       if @aircraft.update_attributes(params[:aircraft])
+        add_to_log(t('Aircraft updated log') + @aircraft.name,"aircrafts","update")
         flash[:notice] = t('Aircraft updated')
         format.html { redirect_to(@aircraft) }
         format.xml  { head :ok }
@@ -92,6 +94,7 @@ class AircraftsController < ApplicationController
   def destroy
     @aircraft = Aircraft.find(params[:id])
     @aircraft.destroy
+    add_to_log(t('Aircraft destroy log') + @aircraft.name,"aircrafts","destroy")
 
     respond_to do |format|
       format.html { redirect_to(aircrafts_url) }

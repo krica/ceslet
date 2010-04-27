@@ -1,5 +1,7 @@
 <h1><%= t('Listing aircrafts') %></h1>
-
+<p>
+  <%= link_to_with_icon('plus',t('New aircraft') , new_aircraft_path, :class=>"fg-button  to-btn") %>
+</p>
 <table>
   <tr>
     <th><%= t('Matriculation') %></th>
@@ -20,7 +22,6 @@
     <td>
       <%= link_to_with_icon('search',t('Show') , aircraft, :class => "fg-btn-small to-btn") %>
       <%= link_to_with_icon('pencil',t('Edit') , edit_aircraft_path(aircraft), :class => "fg-btn-small to-btn") %>
-      <%= link_to_with_icon('trash',t('Destroy') , aircraft, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn") %>
       <%= aircraft_destroy_link(aircraft) %>
   </td>
   </tr>
@@ -29,4 +30,6 @@
 
 <br />
 
-    <%= link_to_with_icon('plus',t('New aircraft') , new_aircraft_path, :class=>"fg-button  to-btn") %>
+<br />
+<%= will_paginate @aircrafts, {:previous_label => t('previous'), :next_label => t('next')} %>
+<br />

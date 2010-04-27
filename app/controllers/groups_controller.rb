@@ -49,6 +49,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
+        add_to_log(t('Group created log') + @group.name,"groups","create")
         flash[:notice] = t('Group created')
         format.html { redirect_to(@group) }
         format.xml  { render :xml => @group, :status => :created, :location => @group }
@@ -66,6 +67,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.update_attributes(params[:group])
+        add_to_log(t('Group updated log') + @group.name,"groups","update")
         flash[:notice] = t('Group updated')
         format.html { redirect_to(@group) }
         format.xml  { head :ok }
@@ -81,6 +83,7 @@ class GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
     @group.destroy
+    add_to_log(t('Group destroy log') + @group.name,"groups","destroy")
 
     respond_to do |format|
       flash[:notice] = t('Group deleted')

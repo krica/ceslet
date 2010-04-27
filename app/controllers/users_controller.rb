@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       # protection if visitor resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
       # reset session
-      add_to_log(t('User created log'),"users","create")
+      add_to_log(t('User created log') + @user.display_name + " (#{@user.login})","users","create")
       redirect_to :action => :index
       flash[:notice] = t('Sign up successfull')
     else
@@ -64,6 +64,7 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        add_to_log(t('User updated log') + @user.display_name + " (#{@user.login})","users","update")
         flash[:notice] = t('User updated')
         format.html { redirect_to(@user) }
         format.xml  { head :ok }
@@ -77,8 +78,8 @@ class UsersController < ApplicationController
   def destroy
     only_admin
     @user = User.find(params[:id])
+    add_to_log(t('User destroy log') + @user.display_name + " (#{@user.login})","users","destroy")
     @user.destroy
-    add_to_log(t('User created log'),"users","destroy")
     if params[:groups]
       params[:groups].each do |id|
         @user.groups << Group.find(id)

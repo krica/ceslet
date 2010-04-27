@@ -50,6 +50,7 @@ class CertificationFeeTwosController < ApplicationController
 
     respond_to do |format|
       if @certification_fee_two.save
+        add_to_log(t('Cetrtification fee two created log') + @certification_fee_two.kind,"certification_fee_twos","create")
         flash[:notice] = t('Certification fee two created')
         format.html { redirect_to(@certification_fee_two) }
         format.xml  { render :xml => @certification_fee_two, :status => :created, :location => @certification_fee_two }
@@ -67,6 +68,7 @@ class CertificationFeeTwosController < ApplicationController
 
     respond_to do |format|
       if @certification_fee_two.update_attributes(params[:certification_fee_two])
+        add_to_log(t('Cetrtification fee two updated log') + @certification_fee_two.kind,"certification_fee_twos","update")
         flash[:notice] = t('Certification fee two updated')
         format.html { redirect_to(@certification_fee_two) }
         format.xml  { head :ok }
@@ -82,6 +84,7 @@ class CertificationFeeTwosController < ApplicationController
   def destroy
     @certification_fee_two = CertificationFeeTwo.find(params[:id])
     @certification_fee_two.destroy
+    add_to_log(t('Cetrtification fee two destroy log') + @certification_fee_two.kind,"certification_fee_twos","update")
 
     respond_to do |format|
       format.html { redirect_to(certification_fee_twos_url) }

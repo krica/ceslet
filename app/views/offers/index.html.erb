@@ -1,5 +1,7 @@
 <h1><%= t('Offers') %></h1>
-
+<p>
+  <%= link_to_with_icon('plus',t('New offer') , new_offer_path, :class=>"fg-button  to-btn") %>
+</p>
 <table>
   <tr>
     <th><%= t('Order number') %></th>
@@ -19,6 +21,7 @@
 <% end %>
 </table>
 
-<br />
 
-<%= link_to_with_icon('plus',t('New offer') , new_offer_path, :class=>"fg-button  to-btn") %>
+<br />
+  <%= will_paginate @offers, {:previous_label => t('previous'), :next_label => t('next')} %>
+<br />

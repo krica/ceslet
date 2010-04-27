@@ -49,6 +49,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
+        add_to_log(t('Company created log') + @company.name,"companies","create")
         flash[:notice] = t('Company created')
         format.html { redirect_to(@company) }
         format.xml  { render :xml => @company, :status => :created, :location => @company }
@@ -66,6 +67,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
+        add_to_log(t('Company updated log') + @company.name,"companies","update")
         flash[:notice] = t('Company updated')
         format.html { redirect_to(@company) }
         format.xml  { head :ok }
@@ -81,6 +83,7 @@ class CompaniesController < ApplicationController
   def destroy
     @company = Company.find(params[:id])
     @company.destroy
+    add_to_log(t('Company destroy log') + @company.name,"companies","destroy")
 
     respond_to do |format|
       format.html { redirect_to(companies_url) }

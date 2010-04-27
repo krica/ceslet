@@ -47,6 +47,7 @@ class ClassificationsController < ApplicationController
 
     respond_to do |format|
       if @classification.save
+        add_to_log(t('Classification created log') + @classification.name,"classifications","create")
         flash[:notice] = t('Classification created')
         format.html { redirect_to(@classification) }
         format.xml  { render :xml => @classification, :status => :created, :location => @classification }
@@ -64,6 +65,7 @@ class ClassificationsController < ApplicationController
 
     respond_to do |format|
       if @classification.update_attributes(params[:classification])
+        add_to_log(t('Classification updated log') + @classification.name,"classifications","update")
         flash[:notice] = t('Classification updated')
         format.html { redirect_to(@classification) }
         format.xml  { head :ok }
@@ -79,6 +81,7 @@ class ClassificationsController < ApplicationController
   def destroy
     @classification = Classification.find(params[:id])
     @classification.destroy
+    add_to_log(t('Classification destroy log') + @classification.name,"classifications","destroy")
 
     respond_to do |format|
       format.html { redirect_to(classifications_url) }

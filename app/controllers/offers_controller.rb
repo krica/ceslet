@@ -7,7 +7,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.xml
   def index
-    @offers = Offer.all
+    @offers = Offer.paginate(:page => params[:page], :order => "created_at desc", :per_page => 12)
 
     respond_to do |format|
       format.html # index.html.erb
