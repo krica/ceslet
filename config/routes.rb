@@ -22,7 +22,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :groups
 
   map.resources :roles
-
+  
+  map.find '/find_order_number', :controller => 'offers', :action => 'find_order_number'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'

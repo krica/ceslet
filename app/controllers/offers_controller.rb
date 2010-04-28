@@ -4,10 +4,29 @@ class OffersController < ApplicationController
   layout 'ceslet', :except => :remote_create 
 
   before_filter :login_required 
+  
+  def find_order_number
+    if params[:order_number]
+      begin
+        @offer = Offer.find_by_order_number(params[:order_number])
+        render :template => "offers/show"
+      rescue
+      redirect_to "/offers"
+      flash[:notice] = t('Offer not found order number')
+      end
+    else
+      redirect_to "/offers"
+      flash[:notice] = t('Offer not found order number')
+    end
+  end
+  
+  
   # GET /offers
   # GET /offers.xml
   def index
-    @offers = Offer.paginate(:page => params[:page], :order => "created_at desc", :per_page => 12)
+    @offers = Offer.paginate(:page => params[:page], :per_page => 12)
+    sort_offer
+    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -113,6 +132,18 @@ class OffersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(offers_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  private
+
+  def sort_offer
+    if params[:sort_by]
+      if params[:sort_by] == "aircrafts"
+        @offers.sort! { |a,b| a.aircraft.name.downcase <=> b.aircraft.name.downcase }
+      end
+    else
+      @offers.sort! { |a,b| a.order_number.downcase <=> b.order_number.downcase }
     end
   end
 end

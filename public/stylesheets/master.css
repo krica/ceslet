@@ -93,7 +93,7 @@ a.fg-button, span.fg-button {
   font-weight: bold; color: #1c94c4;
 }
 
-a.fg-btn-small, span.fg-btn-small {
+a.fg-btn-small, span.fg-btn-small, input.fg-btn-small {
   text-decoration: none;
   position: relative; 
   font-size: 0.95em;
@@ -202,4 +202,8 @@ table#cer-fee-one td {
 
 .date {
   width: 75px;
+}
+#filters-menu {
+  float: right;
+  text-align: right;
 }

@@ -1,5 +1,30 @@
 module OffersHelper
+  #prints filters menu
+  def filters_menu
+    ret = "<div id='filters-menu'>#{t('Sort by')} "
+    if params[:sort_by] == "aircrafts"
+      ret << link_to_with_icon('shuffle',t('By order number') , {:action => :index}, :class=>"fg-btn-small to-btn")
+      ret << link_to_with_icon('shuffle',t('By aircrafts') , {:action => :index, :sort_by => "aircrafts"}, :class=>"fg-btn-small ui-state-active to-btn")
+    else
+      ret << link_to_with_icon('shuffle',t('By order number') , {:action => :index}, :class=>"fg-btn-small ui-state-active to-btn")
+      ret << link_to_with_icon('shuffle',t('By aircrafts') , {:action => :index, :sort_by => "aircrafts"}, :class=>"fg-btn-small to-btn")
+    end
+    ret << "<br />"
+    ret << find_offer_by_order_number
+    ret << "</div>"
+    return ret
+  end
   
+  #renders find by order_number form
+  def find_offer_by_order_number
+    ret = "<p><form method='post' action='/find_order_number'>"
+    ret << "#{t('Find offer by order number')} <input type='text' name='order_number' /> " 
+    ret << "<input type='submit' value='#{t('Find')}' class='fg-btn-small to-btn' />"
+    ret << token_tag
+    ret << "</form></p>"
+    return ret
+  end
+
   #prints or translate
   def show_current_visibility_type
     if @offer.current_visibility_type != "visibility 1" && @offer.current_visibility_type != "visibility 2"
