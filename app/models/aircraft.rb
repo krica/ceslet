@@ -3,6 +3,10 @@ class Aircraft < ActiveRecord::Base
 
   belongs_to :aircraft_model
 
+  validates_presence_of :serial_number
+  validates_uniqueness_of :serial_number
+  validates_presence_of :aircraft_model_id
+  validates_presence_of :matriculation
 
   #returns type and model name
   def name

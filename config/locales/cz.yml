@@ -220,5 +220,88 @@ cz:
   Offer not found order number: Nabídka s požadovaným číslem nabídky nebyla nalezena
   Find: Hledat
   Find offer by order number: Najít podle čísla nabídky
+  activerecord: 
+    models:
+      aircraft: letadlo
+      aircraft type: typ letadla
+      aircraft model: model letadla
+      certification fee one: "certifikační poplatek I"
+      certification fee two: "certifikační poplatek II"
+      company: společnost
+      classification: klasifikaci
+      offer: nabídku
+      regulation basis: předpisovou základnu
+      user: uživatele
+      group: skupinu
+    attributes:
+      aircraft: 
+        serial_number: Sériové číslo
+        aircraft_id: Letadlo
+        matriculation: Imatrikulace
+      aircraft_model:
+        name: Název
+        aircraft_type_id: Typ
+      aircraft_type:
+        name: Název
+      certification_fee_one:
+        mtow_kg: "MTOW kg"
+        fee_type: Typ
+        kind: Druh
+        value: Hodnota
+      certification_fee_two:
+        kind: Druh
+        description: Popis
+      company:
+        name: Název
+        ico: "IČO"
+      classification:
+        name: Název
+        abbreviation: Zkratka
+      offer:
+        aircraft_id: Letadlo
+        order_number: Číslo nabídky
+        certification_fee_one_id: "Certifikační poplatek I"
+      regulation_basis:
+        name: Název
+        mtow_kg: "MTOW kg"
+      user:
+        name: Jméno
+        lastname: Příjmení
+        password: Heslo
+        password_confirmation: Potvrzení hesla
+      group:
+        name: Název
+        abbreviation: Zkratka
+    errors: 
+      messages:
+        taken: "již bylo použito"
+        accepted: "musí být zaškrtnut"
+        not_a_number: "není číslo"
+        blank: "nemůže být prázdné"
+        greater_than_or_equal_to: "musí být větší nebo rovno {{count}}"
+        less_than_or_equal_to: "musí být menší rovno {{count}}"
+        exclusion: "je vyhrazené"
+        confirmation: "se neshoduje s ověřením"
+        odd: "musí být liché"
+        invalid: "je chybný"
+        too_short: "je příliš krátký (minimum je {{count}} znaků)"
+        wrong_length: "není správně dlouhý (měl by mít {{count}} znaků)"
+        empty: "nemůže být prázdné"
+        less_than: "musí být menší než {{count}}"
+        invalid_transition: ""
+        invalid_event: ""
+        too_long: "je příliš dlouhý (maximum je {{count}} znaků)"
+        even: "musí být sudé"
+        equal_to: "musí být shodný s {{count}}"
+        inclusion: "se nenachází v seznamu"
+        greater_than: "musí být větší než {{count}}"
+      template: 
+        body: "Vyskytly se problémy s následujícími poli"
+        header: 
+          one: "Díky 1 chybě nebylo možné {{model}} uložit"
+          few: "Díky {{count}} chybám nebylo možné {{model}} uložit"
+          other: "Díky {{count}} chybám nebylo možné {{model}} uložit"
+  Email should look like email: by měl vypadat jako emailová adresa.
+  Login format: prosím použijte jenom písmena, číslice a .-_@.
 
 

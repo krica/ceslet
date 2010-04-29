@@ -207,3 +207,7 @@ table#cer-fee-one td {
   float: right;
   text-align: right;
 }
+
+.errorExplanation {
+  padding-bottom: 15px;
+}
