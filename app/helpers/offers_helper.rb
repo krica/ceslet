@@ -69,12 +69,18 @@ module OffersHelper
   def aircraft_select
     if @offer.aircraft_id != nil
       if !Aircraft.find(:all, :conditions => {:active => true}).include?(Aircraft.find(@offer.aircraft.id))
-        return select :offer, :aircraft_id, Aircraft.find_all_by_id(@offer.aircraft.id).map {|a| [a.name, a.id]} + Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
+        @aircrafts = Aircraft.find_all_by_id(@offer.aircraft.id) + Aircraft.find(:all, :conditions => {:active => true})
+        @aircrafts.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+        return select :offer, :aircraft_id, @aircrafts.map {|a| [a.name, a.id]}
       else
-        return select :offer, :aircraft_id, Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
+        @aircrafts = Aircraft.find(:all, :conditions => {:active => true})
+        @aircrafts.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+        return select :offer, :aircraft_id, @aircrafts.map {|a| [a.name, a.id]}
       end
     else
-      return select :offer, :aircraft_id, Aircraft.find(:all, :conditions => {:active => true}).map {|a| [a.name, a.id]}
+      @aircrafts = Aircraft.find(:all, :conditions => {:active => true})
+      @aircrafts.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+      return select :offer, :aircraft_id, @aircrafts.map {|a| [a.name, a.id]}
     end
   end
   
