@@ -27,7 +27,7 @@ module OffersHelper
 
   #prints or translate
   def show_current_visibility_type
-    if @offer.current_visibility_type != "visibility 1" && @offer.current_visibility_type != "visibility 2"
+    if @offer.current_visibility_type != "visibility 1" && @offer.current_visibility_type != "visibility 2" && @offer.planned_visibility_type != "visibility 4"
       return @offer.current_visibility_type
     else
       return t(@offer.current_visibility_type)
@@ -36,7 +36,7 @@ module OffersHelper
 
   #prints or translate
   def show_planned_visibility_type
-    if @offer.planned_visibility_type != "visibility 1" && @offer.planned_visibility_type != "visibility 2"
+    if @offer.planned_visibility_type != "visibility 1" && @offer.planned_visibility_type != "visibility 2" && @offer.planned_visibility_type != "visibility 4"
       return @offer.planned_visibility_type
     else
       return t(@offer.planned_visibility_type)
@@ -46,7 +46,7 @@ module OffersHelper
   #returns filled or blank input current visibility type
   def current_visibility_type
     ret = ""
-    if @offer.current_visibility_type != "visibility 1" && @offer.current_visibility_type != "visibility 2"
+    if @offer.current_visibility_type != "visibility 1" && @offer.current_visibility_type != "visibility 2" && @offer.planned_visibility_type != "visibility 4"
       ret << text_field_tag(:current_visibility_type_other, @offer.current_visibility_type)
     else
       ret << text_field_tag(:current_visibility_type_other)
@@ -57,7 +57,7 @@ module OffersHelper
   #returns filled or blank input planned visibility type
   def planned_visibility_type
     ret = ""
-    if @offer.planned_visibility_type != "visibility 1" && @offer.planned_visibility_type != "visibility 2"
+    if @offer.planned_visibility_type != "visibility 1" && @offer.planned_visibility_type != "visibility 2" && @offer.planned_visibility_type != "visibility 4"
       ret << text_field_tag(:planned_visibility_type_other, @offer.planned_visibility_type)
     else
       ret << text_field_tag(:planned_visibility_type_other)
@@ -147,19 +147,19 @@ module OffersHelper
   
   #returns planned visibility type select
   def planned_visibility_type_select
-    if @offer.planned_visibility_type != "visibility 1" && @offer.planned_visibility_type != "visibility 2"
-    select :offer, :planned_visibility_type, [[t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']], :selected => "visibility 3"
+    if @offer.planned_visibility_type != "visibility 1" && @offer.planned_visibility_type != "visibility 2" && @offer.planned_visibility_type != "visibility 4"
+    select :offer, :planned_visibility_type, [[t('visibility 4'), 'visibility 4'], [t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']], :selected => "visibility 3"
     else
-      select :offer, :planned_visibility_type, [[t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']]
+      select :offer, :planned_visibility_type, [[t('visibility 4'), 'visibility 4'], [t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']]
     end
   end
   
   #returns current visibility type select
   def current_visibility_type_select
-    if @offer.current_visibility_type != "visibility 1" && @offer.current_visibility_type != "visibility 2"
-      select :offer, :current_visibility_type, [[t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']], :selected => "visibility 3" 
+    if @offer.current_visibility_type != "visibility 1" && @offer.current_visibility_type != "visibility 2" && @offer.current_visibility_type != "visibility 4"
+      select :offer, :current_visibility_type, [[t('visibility 4'), 'visibility 4'], [t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']], :selected => "visibility 3" 
     else
-      select :offer, :current_visibility_type, [[t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']]
+      select :offer, :current_visibility_type, [[t('visibility 4'), 'visibility 4'], [t('visibility 1'), 'visibility 1'], [t('visibility 2'), 'visibility 2'], [t('visibility 3'), 'visibility 3']]
     end
   end
 end

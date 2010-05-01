@@ -146,6 +146,7 @@ cz:
   Order number: Číslo nabídky
   Vfr: "VFR"
   Ifr: "IFR"
+  visibility 4: L6/I
   visibility 1: L6/II
   visibility 2: "EU-OPS1"
   visibility 3: Jiné (uveďte)
