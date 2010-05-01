@@ -8,7 +8,7 @@ module AircraftTypesHelper
         count = count + 1
       end
     end
-    if count == 0
+    if count == 0 && current_user.has_role?("admin")
       return link_to_with_icon('trash',t('Destroy') , aircraft_type, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn")
     else
       return link_to_with_icon('info',t('Types count') + " " + count.to_s ,"#", :class => "fg-btn-small to-btn ui-state-disabled")

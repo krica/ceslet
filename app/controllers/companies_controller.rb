@@ -81,6 +81,7 @@ class CompaniesController < ApplicationController
   # DELETE /companies/1
   # DELETE /companies/1.xml
   def destroy
+    only_admin
     @company = Company.find(params[:id])
     @company.destroy
     add_to_log(t('Company destroy log') + @company.name,"companies","destroy")

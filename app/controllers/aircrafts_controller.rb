@@ -92,6 +92,7 @@ class AircraftsController < ApplicationController
   # DELETE /aircrafts/1
   # DELETE /aircrafts/1.xml
   def destroy
+    only_admin
     @aircraft = Aircraft.find(params[:id])
     @aircraft.destroy
     add_to_log(t('Aircraft destroy log') + @aircraft.name,"aircrafts","destroy")

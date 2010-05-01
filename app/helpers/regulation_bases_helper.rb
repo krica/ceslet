@@ -8,7 +8,7 @@ module RegulationBasesHelper
         count = count + 1
       end
     end
-    if count == 0
+    if count == 0 && current_user.has_role?("admin")
       return link_to_with_icon('trash',t('Destroy') , regulation_basis, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn")
     else
       return link_to_with_icon('info',t('Offers count') + " " + count.to_s ,"#", :class => "fg-btn-small to-btn ui-state-disabled")

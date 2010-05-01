@@ -8,7 +8,7 @@ module AircraftModelsHelper
         c = c + 1
       end
     end
-    if c == 0
+    if c == 0 && current_user.has_role?("admin")
       return link_to_with_icon('trash',t('Destroy') , aircraft_model, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn")
     else
       return link_to_with_icon('info',t('Aircrafts count') + " " + c.to_s ,"#", :class => "fg-btn-small to-btn ui-state-disabled")

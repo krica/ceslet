@@ -17,7 +17,7 @@
     <td>
       <%= link_to_with_icon('search',t('Show') , offer, :class => "fg-btn-small to-btn") %>
       <%= link_to_with_icon('pencil',t('Edit') , edit_offer_path(offer), :class => "fg-btn-small to-btn") %>
-      <%= link_to_with_icon('trash',t('Destroy') , offer, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn") %>
+      <%= offer_destroy_link(offer) %>
     </td>
   </tr>
 <% end %>

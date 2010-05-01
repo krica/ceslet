@@ -1,4 +1,12 @@
 module OffersHelper
+  
+  #prints offers destroy link
+  def offer_destroy_link(offer)
+    if current_user.has_role?("admin")
+      return link_to_with_icon('trash',t('Destroy') , offer, :confirm => t('Are you sure'), :method => :delete, :class => "fg-btn-small to-btn")
+    end
+  end
+
   #prints filters menu
   def filters_menu
     ret = "<div id='filters-menu'>#{t('Sort by')} "

@@ -1,7 +1,7 @@
 class CertificationFeeOnesController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet' 
-  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update] 
+  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update]
   # GET /certification_fee_ones
   # GET /certification_fee_ones.xml
   def index
@@ -78,6 +78,7 @@ class CertificationFeeOnesController < ApplicationController
   # DELETE /certification_fee_ones/1
   # DELETE /certification_fee_ones/1.xml
   def destroy
+    only_admin
     @certification_fee_one = CertificationFeeOne.find(params[:id])
     @certification_fee_one.destroy
     add_to_log(t('Cetrtification fee one destroy log') + @certification_fee_one.display,"certification_fee_ones","destroy")

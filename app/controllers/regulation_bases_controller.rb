@@ -81,6 +81,7 @@ class RegulationBasesController < ApplicationController
   # DELETE /regulation_bases/1
   # DELETE /regulation_bases/1.xml
   def destroy
+    only_admin
     @regulation_basis = RegulationBasis.find(params[:id])
     @regulation_basis.destroy
     add_to_log(t('Regulation basis destroy log') + @regulation_basis.name,"regulation_basis","destroy")

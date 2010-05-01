@@ -126,6 +126,7 @@ class OffersController < ApplicationController
   # DELETE /offers/1
   # DELETE /offers/1.xml
   def destroy
+    only_admin
     @offer = Offer.find(params[:id])
     @offer.destroy
     add_to_log(t('Destroyed offer no') + @offer.order_number,"offers","destroy")

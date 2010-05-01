@@ -79,6 +79,7 @@ class ClassificationsController < ApplicationController
   # DELETE /classifications/1
   # DELETE /classifications/1.xml
   def destroy
+    only_admin
     @classification = Classification.find(params[:id])
     @classification.destroy
     add_to_log(t('Classification destroy log') + @classification.name,"classifications","destroy")
