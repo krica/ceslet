@@ -1,5 +1,9 @@
 <h1><%= t('Aircraft types') %></h1>
-
+<% unless current_user.has_role?("observer") %>
+  <p>
+    <%= link_to_with_icon('plus',t('Add new type') , new_aircraft_type_path, :class=>"fg-button  to-btn") %>
+  </p>
+<% end %>
 <table>
   <tr>
     <th><%= t('Name') %></th>
@@ -10,12 +14,13 @@
     <td><%=h aircraft_type.name %></td>
     <td>
       <%= link_to_with_icon('search',t('Show') , aircraft_type, :class => "fg-btn-small to-btn") %>
-      <%= link_to_with_icon('pencil',t('Edit') , edit_aircraft_type_path(aircraft_type), :class => "fg-btn-small to-btn") %>
-      <%= type_destroy_link(aircraft_type) %>
+      <% unless current_user.has_role?("observer") %>
+        <%= link_to_with_icon('pencil',t('Edit') , edit_aircraft_type_path(aircraft_type), :class => "fg-btn-small to-btn") %>
+        <%= type_destroy_link(aircraft_type) %>
+      <% end %>
     </td>
   </tr>
 <% end %>
 </table>
 
 <br />
-<%= link_to_with_icon('plus',t('Add new type') , new_aircraft_type_path, :class=>"fg-button  to-btn") %>

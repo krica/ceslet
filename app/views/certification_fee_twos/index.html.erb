@@ -1,4 +1,9 @@
 <h1><%= t('Certification fee twos') %></h1>
+<% unless current_user.has_role?("observer") %>
+  <p>
+    <%= link_to_with_icon('plus',t('New certification fee two') , new_certification_fee_two_path, :class=>"fg-button  to-btn") %>
+  </p>
+<% end %>
 
 <table>
   <tr>
@@ -15,12 +20,13 @@
     <td><%=h certification_fee_two.active %></td>
     <td>
       <%= link_to_with_icon('search',t('Show') , certification_fee_two, :class => "fg-btn-small to-btn") %>
-      <%= link_to_with_icon('pencil',t('Edit') , edit_certification_fee_two_path(certification_fee_two), :class => "fg-btn-small to-btn") %>
-      <%= certification_fee_twos_destroy_link(certification_fee_two) %>  
+      <% unless current_user.has_role?("observer") %>
+        <%= link_to_with_icon('pencil',t('Edit') , edit_certification_fee_two_path(certification_fee_two), :class => "fg-btn-small to-btn") %>
+        <%= certification_fee_twos_destroy_link(certification_fee_two) %>
+      <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to_with_icon('plus',t('New certification fee two') , new_certification_fee_two_path, :class=>"fg-button  to-btn") %>

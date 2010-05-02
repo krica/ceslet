@@ -181,4 +181,6 @@
 </table>
 <br />
 <%= back_link(offers_path) %>
+<% unless current_user.has_role?("observer") %>
 <%= link_to t('Edit'), edit_offer_path(@offer), :class => "fg-button to-btn" %>
+<% end %>

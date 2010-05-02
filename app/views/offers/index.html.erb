@@ -1,9 +1,11 @@
 <h1><%= t('Offers') %></h1>
 <%= filters_menu %>
+<% unless current_user.has_role?("observer") %>
 <br />
 <p>
   <%= link_to_with_icon('plus',t('New offer') , new_offer_path, :class=>"fg-button  to-btn") %>
 </p>
+<% end %>
 <table>
   <tr>
     <th><%= t('Order number') %></th>
@@ -16,8 +18,10 @@
     <td><%=h offer.aircraft.name %></td>
     <td>
       <%= link_to_with_icon('search',t('Show') , offer, :class => "fg-btn-small to-btn") %>
+      <% unless current_user.has_role?("observer") %>
       <%= link_to_with_icon('pencil',t('Edit') , edit_offer_path(offer), :class => "fg-btn-small to-btn") %>
       <%= offer_destroy_link(offer) %>
+      <% end %>
     </td>
   </tr>
 <% end %>

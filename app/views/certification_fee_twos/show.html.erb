@@ -21,4 +21,6 @@
 
 
 <%= back_link(certification_fee_twos_path) %>
-<%= link_to t('Edit'), edit_certification_fee_two_path(@certification_fee_two), :class => "fg-button to-btn" %>
+<% unless current_user.has_role?("observer") %>
+  <%= link_to t('Edit'), edit_certification_fee_two_path(@certification_fee_two), :class => "fg-button to-btn" %>
+<% end %>

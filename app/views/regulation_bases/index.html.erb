@@ -1,4 +1,9 @@
 <h1><%= t('Regulation bases') %></h1>
+<% unless current_user.has_role?("observer") %>
+  <p>
+    <%= link_to_with_icon('plus',t('New regulation_basis') , new_regulation_basis_path, :class=>"fg-button  to-btn") %>
+  </p>
+<% end %>
 
 <table>
   <tr>
@@ -13,8 +18,10 @@
     <td><%=h regulation_basis.mtow_kg %></td>
     <td>
 <%= link_to_with_icon('search',t('Show') , regulation_basis, :class => "fg-btn-small to-btn") %>
-<%= link_to_with_icon('pencil',t('Edit') , edit_regulation_basis_path(regulation_basis), :class => "fg-btn-small to-btn") %>
-      <%= regulation_basis_destroy_link(regulation_basis) %>  
+      <% unless current_user.has_role?("observer") %>
+        <%= link_to_with_icon('pencil',t('Edit') , edit_regulation_basis_path(regulation_basis), :class => "fg-btn-small to-btn") %>
+        <%= regulation_basis_destroy_link(regulation_basis) %>
+      <% end %>
     </td>
   </tr>
 <% end %>
@@ -22,4 +29,3 @@
 
 <br />
 
-<%= link_to_with_icon('plus',t('New regulation_basis') , new_regulation_basis_path, :class=>"fg-button  to-btn") %>

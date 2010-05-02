@@ -16,4 +16,6 @@
 
 
 <%= back_link(companies_path) %>
-<%= link_to t('Edit'), edit_company_path(@company), :class => "fg-button to-btn" %>
+<% unless current_user.has_role?("observer") %>
+  <%= link_to t('Edit'), edit_company_path(@company), :class => "fg-button to-btn" %>
+<% end %>

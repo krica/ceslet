@@ -1,5 +1,9 @@
 <h1><%= t('Classifications') %></h1>
-
+<% unless current_user.has_role?("observer") %>
+  <p>
+    <%= link_to_with_icon('plus',t('New classification') , new_classification_path, :class=>"fg-button  to-btn") %>
+  </p>
+<% end %>
 <table>
   <tr>
     <th><%= t('Name') %></th>
@@ -13,8 +17,10 @@
     <td><%=h classification.abbreviation %></td>
     <td>
       <%= link_to t('Show'), classification, :class => "fg-btn-small to-btn" %>
-      <%= link_to t('Edit'), edit_classification_path(classification), :class => "fg-btn-small to-btn" %>
-      <%= classification_destroy_link(classification) %>
+      <% unless current_user.has_role?("observer") %>
+        <%= link_to t('Edit'), edit_classification_path(classification), :class => "fg-btn-small to-btn" %>
+        <%= classification_destroy_link(classification) %>
+      <% end %>
     </td>
   </tr>
 <% end %>
@@ -22,4 +28,3 @@
 
 <br />
 
-<%= link_to_with_icon('plus',t('New classification') , new_classification_path, :class=>"fg-button  to-btn") %>

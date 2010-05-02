@@ -12,4 +12,6 @@
 
 
 <%= back_link(classifications_path) %>
-<%= link_to t('Edit'), edit_classification_path(@classification), :class => "fg-button to-btn" %>
+<% unless current_user.has_role?("observer") %>
+  <%= link_to t('Edit'), edit_classification_path(@classification), :class => "fg-button to-btn" %>
+<% end %>

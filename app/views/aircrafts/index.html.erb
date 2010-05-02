@@ -1,7 +1,9 @@
 <h1><%= t('Listing aircrafts') %></h1>
+<% unless current_user.has_role?("observer") %>
 <p>
   <%= link_to_with_icon('plus',t('New aircraft') , new_aircraft_path, :class=>"fg-button  to-btn") %>
 </p>
+<% end %>
 <table>
   <tr>
     <th><%= t('Matriculation') %></th>
@@ -21,8 +23,10 @@
     <td><%=h aircraft.active %></td>
     <td>
       <%= link_to_with_icon('search',t('Show') , aircraft, :class => "fg-btn-small to-btn") %>
-      <%= link_to_with_icon('pencil',t('Edit') , edit_aircraft_path(aircraft), :class => "fg-btn-small to-btn") %>
-      <%= aircraft_destroy_link(aircraft) %>
+      <% unless current_user.has_role?("observer") %>
+        <%= link_to_with_icon('pencil',t('Edit') , edit_aircraft_path(aircraft), :class => "fg-btn-small to-btn") %>
+        <%= aircraft_destroy_link(aircraft) %>
+      <% end %>  
   </td>
   </tr>
 <% end %>
