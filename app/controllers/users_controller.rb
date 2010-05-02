@@ -3,20 +3,19 @@ class UsersController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet' 
 
-  before_filter :login_required 
+  before_filter :login_required
+  before_filter :only_admin, :only => [:new, :create, :show, :edit, :update, :destroy, :index] 
   def main
     
   end
 
   # render new.rhtml
   def new
-    only_admin
     @user = User.new
     @groups = Group.find(:all)
   end
  
   def create
-    only_admin
     @user = User.new(params[:user])
     if params[:groups]
       params[:groups].each do |id|
@@ -39,22 +38,18 @@ class UsersController < ApplicationController
   end
 
   def show
-    only_admin
     @user = User.find(params[:id]) 
   end
 
   def index
-    only_admin
     @users = User.find(:all, :order => :lastname)
   end
 
   def edit
-    only_admin
     @user = User.find(params[:id])
   end
 
   def update
-    only_admin
     @user = User.find(params[:id])
     @user.groups.delete_all
     if params[:groups]
@@ -76,7 +71,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    only_admin
     @user = User.find(params[:id])
     add_to_log(t('User destroy log') + @user.display_name + " (#{@user.login})","users","destroy")
     @user.destroy

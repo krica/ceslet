@@ -3,7 +3,9 @@ class CompaniesController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet' 
   
-  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update] 
+  before_filter :login_required
+  before_filter :restrict_observer, :only => [:update, :edit, :new, :create]
+  before_filter :only_admin, :only => [:destroy]
   # GET /companies
   # GET /companies.xml
   def index
@@ -81,7 +83,6 @@ class CompaniesController < ApplicationController
   # DELETE /companies/1
   # DELETE /companies/1.xml
   def destroy
-    only_admin
     @company = Company.find(params[:id])
     @company.destroy
     add_to_log(t('Company destroy log') + @company.name,"companies","destroy")

@@ -1,7 +1,10 @@
 class ClassificationsController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet' 
-  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update] 
+  before_filter :login_required
+  before_filter :restrict_observer, :only => [:update, :edit, :new, :create]
+  before_filter :only_admin, :only => [:destroy]
+  
   # GET /classifications
   # GET /classifications.xml
   def index
@@ -79,7 +82,6 @@ class ClassificationsController < ApplicationController
   # DELETE /classifications/1
   # DELETE /classifications/1.xml
   def destroy
-    only_admin
     @classification = Classification.find(params[:id])
     @classification.destroy
     add_to_log(t('Classification destroy log') + @classification.name,"classifications","destroy")

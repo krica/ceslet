@@ -3,6 +3,7 @@ class RolesController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet'
   
+  before_filter :login_required
   before_filter :only_admin  
   
   # GET /roles

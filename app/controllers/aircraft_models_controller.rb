@@ -3,6 +3,8 @@ class AircraftModelsController < ApplicationController
   layout 'ceslet', :except => :remote_create 
 
   before_filter :login_required 
+  before_filter :restrict_observer, :only => [:update, :edit, :new, :create]
+  before_filter :only_admin, :only => [:destroy]
 
   def remote_create
     @aircraft_model = AircraftModel.new()
@@ -100,7 +102,6 @@ class AircraftModelsController < ApplicationController
   # DELETE /aircraft_models/1
   # DELETE /aircraft_models/1.xml
   def destroy
-    only_admin
     @aircraft_model = AircraftModel.find(params[:id])
     @aircraft_model.destroy
     add_to_log(t('Aircraft model destroy log') + @aircraft_model.name,"aircraft_models","destroy")

@@ -21,6 +21,13 @@ class ApplicationController < ActionController::Base
     @log.save
   end
 
+  def restrict_observer
+    if current_user.has_role?("observer")
+      flash[:notice] = t('No_right')
+      redirect_to "/"
+    end
+  end
+
   def only_admin
     if !current_user.has_role?("admin")
       flash[:notice] = t('No_right')

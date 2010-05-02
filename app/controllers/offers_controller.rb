@@ -4,6 +4,8 @@ class OffersController < ApplicationController
   layout 'ceslet', :except => :remote_create 
 
   before_filter :login_required 
+  before_filter :restrict_observer, :only => [:update, :edit, :new, :create]
+  before_filter :only_admin, :only => [:destroy]
   
   def find_order_number
     if params[:order_number]
@@ -126,7 +128,6 @@ class OffersController < ApplicationController
   # DELETE /offers/1
   # DELETE /offers/1.xml
   def destroy
-    only_admin
     @offer = Offer.find(params[:id])
     @offer.destroy
     add_to_log(t('Destroyed offer no') + @offer.order_number,"offers","destroy")

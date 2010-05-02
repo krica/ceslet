@@ -3,7 +3,10 @@ class AircraftTypesController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet', :except => :remote_create 
   
-  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update] 
+  before_filter :login_required
+  before_filter :restrict_observer, :only => [:update, :edit, :new, :create]
+  before_filter :only_admin, :only => [:destroy]
+  
   # GET /aircraft_types
   # GET /aircraft_types.xml
   
@@ -91,7 +94,6 @@ class AircraftTypesController < ApplicationController
   # DELETE /aircraft_types/1
   # DELETE /aircraft_types/1.xml
   def destroy
-    only_admin
     @aircraft_type = AircraftType.find(params[:id])
     @aircraft_type.destroy
     add_to_log(t('Aircraft type destroy log') + @aircraft_type.name,"aircraft_types","destroy")

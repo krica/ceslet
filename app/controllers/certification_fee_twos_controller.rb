@@ -4,6 +4,8 @@ class CertificationFeeTwosController < ApplicationController
   layout 'ceslet', :except => :remote_create 
 
   before_filter :login_required
+  before_filter :restrict_observer, :only => [:update, :edit, :new, :create]
+  before_filter :only_admin, :only => [:destroy]
   
   # GET /certification_fee_twos
   # GET /certification_fee_twos.xml
@@ -82,7 +84,6 @@ class CertificationFeeTwosController < ApplicationController
   # DELETE /certification_fee_twos/1
   # DELETE /certification_fee_twos/1.xml
   def destroy
-    only_admin
     @certification_fee_two = CertificationFeeTwo.find(params[:id])
     @certification_fee_two.destroy
     add_to_log(t('Cetrtification fee two destroy log') + @certification_fee_two.kind,"certification_fee_twos","update")

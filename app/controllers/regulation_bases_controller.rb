@@ -3,7 +3,11 @@ class RegulationBasesController < ApplicationController
   include AuthenticatedSystem
   layout 'ceslet' 
 
-  before_filter :login_required, :only => [:new, :edit, :show, :index, :destroy, :update, :main] 
+  before_filter :login_required
+  before_filter :restrict_observer, :only => [:update, :edit, :new, :create]
+  before_filter :only_admin, :only => [:destroy]
+
+
   # GET /regulation_bases
   # GET /regulation_bases.xml
   def index
@@ -81,7 +85,6 @@ class RegulationBasesController < ApplicationController
   # DELETE /regulation_bases/1
   # DELETE /regulation_bases/1.xml
   def destroy
-    only_admin
     @regulation_basis = RegulationBasis.find(params[:id])
     @regulation_basis.destroy
     add_to_log(t('Regulation basis destroy log') + @regulation_basis.name,"regulation_basis","destroy")
