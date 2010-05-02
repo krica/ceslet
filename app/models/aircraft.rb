@@ -32,6 +32,24 @@ class Aircraft < ActiveRecord::Base
       return ""
     end
   end
+  
+  #returns operator company ico if present
+  def operator_ico
+    if self.operator_id && @operator = Company.find(self.operator_id)
+      return @operator.ico
+    else
+      return ""
+    end
+  end
+  
+  #returns operator company dic if present
+  def operator_dic
+    if self.operator_id && @operator = Company.find(self.operator_id)
+      return @operator.dic
+    else
+      return ""
+    end
+  end
 
   #returns owner company name if present
   def owner_name
@@ -41,4 +59,23 @@ class Aircraft < ActiveRecord::Base
       return ""
     end
   end
+  
+  #returns owner company ico if present
+  def owner_ico
+    if self.owner_id && @owner = Company.find(self.owner_id)
+      return @owner.ico
+    else
+      return ""
+    end
+  end
+
+  #returns owner company dic if present
+  def owner_dic
+    if self.owner_id && @owner = Company.find(self.owner_id)
+      return @owner.dic
+    else
+      return ""
+    end
+  end
+
 end

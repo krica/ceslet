@@ -136,6 +136,15 @@ h2
   margin-bottom: 10px;
   
 }
+h3 
+{
+  font-weight: bold;
+  line-height: 150%;
+  font-size: 130%;
+  color: #1C94C4;
+  margin-bottom: 10px;
+  
+}
 p
 {
   padding-bottom: 10px;

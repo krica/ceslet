@@ -304,5 +304,7 @@ cz:
           other: "Díky {{count}} chybám nebylo možné {{model}} uložit"
   Email should look like email: by měl vypadat jako emailová adresa.
   Login format: prosím použijte jenom písmena, číslice a .-_@.
-
+  Hide: Skrýt
+  Show aircraft info: Zobrazit informace o letadle
+  Aircraft info: Informace o letadle
 

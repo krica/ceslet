@@ -1,0 +1,167 @@
+<h3><%= t('Aircraft info') %></h3>
+<table>
+  <tr>
+    <td>
+      <b><%= t('Type') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.aircraft_type.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Model') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Serial number') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.serial_number %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Matriculation') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.matriculation %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Operator') %>:</b>
+    </td>  
+    <td>
+      <%=h @offer.aircraft.operator_name %>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <%= t('Ico') %>:  <%=h @offer.aircraft.operator_ico %>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <%= t('Dic') %>:  <%=h @offer.aircraft.operator_dic %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Owner') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.owner_name %>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <%= t('Ico') %>:  <%=h @offer.aircraft.owner_ico %>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <%= t('Dic') %>:  <%=h @offer.aircraft.owner_dic %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Tcds') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.tcds %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Supplementary_indications') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.supplementary_indications %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Mtow kg') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.mtow_kg %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Speed vno') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.speed_vno %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Speed vne') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.speed_vne %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Speed vmin') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.speed_vmin %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Original regulation basis') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.original_regulation_basis %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Number of passengers') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.number_of_passengers %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Number of engines') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.number_of_engines %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Engine type') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.aircraft_model.engine_type %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><%= t('Active') %>:</b>
+    </td>
+    <td>
+      <%=h @offer.aircraft.active %>
+    </td>
+  </tr>
+</table>
+<br />
+<p>
+  <%= submit_tag t('Hide'), :id => "hide-aircraft-info", :onclick => "$('#aircraft-info').slideUp('fast');$('#show-aircraft-info').show();", :class => "fg-btn-small to-btn" %>
+</p>

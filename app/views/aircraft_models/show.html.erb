@@ -1,61 +1,61 @@
 <h1><%= t('Aircraft model') %></h1>
 <p>
-  <b>Name:</b>
+  <b><%= t('Name') %>:</b>
   <%=h @aircraft_model.name %>
 </p>
 
 <p>
-  <b>Aircraft type:</b>
+  <b><%= t('Aircraft type') %>:</b>
   <%=h AircraftType.find(@aircraft_model.aircraft_type_id).name %>
 </p>
 
 <p>
-  <b>Tcds:</b>
+  <b><%= t('Tcds') %>:</b>
   <%=h @aircraft_model.tcds %>
 </p>
 
 <p>
-  <b>Supplementary indications:</b>
+  <b><%= t('Supplementary_indications') %>:</b>
   <%=h @aircraft_model.supplementary_indications %>
 </p>
 
 <p>
-  <b>Mtow kg:</b>
+  <b><%= t('Mtow kg') %>:</b>
   <%=h @aircraft_model.mtow_kg %>
 </p>
 
 <p>
-  <b>Speed vno:</b>
+  <b><%= t('Speed vno') %>:</b>
   <%=h @aircraft_model.speed_vno %>
 </p>
 
 <p>
-  <b>Speed vne:</b>
+  <b><%= t('Speed vne') %>:</b>
   <%=h @aircraft_model.speed_vne %>
 </p>
 
 <p>
-  <b>Speed vmin:</b>
+  <b><%= t('Speed vmin') %>:</b>
   <%=h @aircraft_model.speed_vmin %>
 </p>
 
 <p>
-  <b>Original regulation basis:</b>
+  <b><%= t('Original regulation basis') %>:</b>
   <%=h @aircraft_model.original_regulation_basis %>
 </p>
 
 <p>
-  <b>Number of passengers:</b>
+  <b><%= t('Number of passengers') %>:</b>
   <%=h @aircraft_model.number_of_passengers %>
 </p>
 
 <p>
-  <b>Number of engines:</b>
+  <b><%= t('Number of engines') %>:</b>
   <%=h @aircraft_model.number_of_engines %>
 </p>
 
 <p>
-  <b>Engine type:</b>
+  <b><%= t('Engine type') %>:</b>
   <%=h @aircraft_model.engine_type %>
 </p>
 

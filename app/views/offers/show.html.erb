@@ -1,6 +1,14 @@
 <h1><%= t('Offer') + " " + t('Number') + " " +  @offer.order_number %></h1>
 <h2><%=h @offer.aircraft.name %> <%= @offer.aircraft.serial_number %></h2>
-      
+<div id="aircraft-info" style="display: none;">
+  <fieldset>
+    <%= render :partial => 'aircraft_info' %>
+  </fieldset>
+  <br />
+</div>    
+<p>
+<%= submit_tag t('Show aircraft info'), :id => "show-aircraft-info", :onclick => "$('#aircraft-info').slideDown('fast');$('#show-aircraft-info').hide();", :class => "fg-btn-small to-btn" %>
+</p>
 <table>
   <tr>
     <td>
