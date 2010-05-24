@@ -15,7 +15,7 @@
   <p>
     <%= f.label t('Model') %><br />
     <div id="select-model-new">
-      <%= f.select :aircraft_model_id, AircraftModel.find(:all, :conditions => {:aircraft_type_id => AircraftType.first.id}).map {|t| [t.name, t.id]} %>
+      <%= f.select :aircraft_model_id, AircraftModel.find(:all).map {|t| [t.name, t.id]} %>
     </div>
     <br />
     </div>

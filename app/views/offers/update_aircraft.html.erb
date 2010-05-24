@@ -1,0 +1,2 @@
+<br />
+<%= select :offer, :aircraft_id, @aircrafts.map {|a| [a.matriculation + " - " + a.serial_number, a.id]} %>

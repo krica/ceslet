@@ -52,9 +52,9 @@ cz:
   Aircraft models: Letadla - Modely
   Add aircraft model: Přidat model
   New aircraft model: Nový model
-  Tcds: "T&#67&#68&#83"
+  Tcds: "T&#67;&#68;&#83;"
   Supplementary_indications: Doplňkové označení
-  Mtow kg: "M&#84&#79&#87 kg"
+  Mtow kg: "M&#84;&#79;&#87; kg"
   Speed vno: Rychlost vno
   Speed vne: Rychlost vne
   Speed vmin: Rychlost vmin
@@ -123,7 +123,7 @@ cz:
   fee type 3: Simple
   kind 1: letoun
   kind 2: vrtulník
-  Certification fee one: "Certifikační poplatek &#73"
+  Certification fee one: "Certifikační poplatek &#73;"
   Certification fee one updated: Certifikační poplatek I úspěšně upraven.
   Certification fee one created: Certifikační poplatek I úspěšně vytvořen.
   Value eur: Hodnota - EUR
@@ -134,7 +134,7 @@ cz:
   Regulation basis updated: Předpisová základna byla úspěšně upravena.
   Regulation basis created: Předpisová základna byla úspěšně vytvořena.
   Regulation basis: Předpisová základna
-  Certification fee twos: "Certifikační poplatky &#73&#73"
+  Certification fee twos: "Certifikační poplatky &#73;&#73;"
   Certification fee two: Certifikační poplatek II
   New certification fee two: Nový certifikační poplatek II
   Editing certification fee two: Úprava certifikačního poplatku II
@@ -307,4 +307,4 @@ cz:
   Hide: Skrýt
   Show aircraft info: Zobrazit informace o letadle
   Aircraft info: Informace o letadle
-
+  By created: datumu vytvoření

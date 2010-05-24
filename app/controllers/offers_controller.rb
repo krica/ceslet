@@ -1,12 +1,26 @@
 class OffersController < ApplicationController
   
   include AuthenticatedSystem
-  layout 'ceslet', :except => :remote_create 
+  layout 'ceslet', :except => [:update_aircraft_model, :update_aircraft] 
 
   before_filter :login_required 
   before_filter :restrict_observer, :only => [:update, :edit, :new, :create]
   before_filter :only_admin, :only => [:destroy]
   
+  #
+  def update_aircraft_model
+    @models = AircraftModel.find(:all, :conditions => {:aircraft_type_id => params[:type_id]})
+    if @models.first != nil
+      @aircrafts = Aircraft.find(:all, :conditions => {:active => true, :aircraft_model_id => @models.first.id})
+    else 
+      @aircrafts = []
+    end
+  end
+  #d
+  def update_aircraft
+     @aircrafts = Aircraft.find(:all, :conditions => {:active => true, :aircraft_model_id => params[:model_id]})
+  end
+
   def find_order_number
     if params[:order_number]
       begin
@@ -26,7 +40,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.xml
   def index
-    @offers = Offer.paginate(:page => params[:page], :per_page => 12)
+    @offers = Offer.paginate(:all, :page => params[:page], :per_page => 12, :order => 'created_at desc')
     sort_offer
     
 
@@ -142,10 +156,15 @@ class OffersController < ApplicationController
   def sort_offer
     if params[:sort_by]
       if params[:sort_by] == "aircrafts"
+    @offers = Offer.paginate(:all, :page => params[:page], :per_page => 12, :order => 'aircraft_id desc')
         @offers.sort! { |a,b| a.aircraft.name.downcase <=> b.aircraft.name.downcase }
-      end
-    else
+      elsif params[:sort_by] == "created_at"
+    @offers = Offer.paginate(:all, :page => params[:page], :per_page => 12, :order => 'created_at desc')
+        return
+     elsif params[:sort_by] == "order_number"
+    @offers = Offer.paginate(:all, :page => params[:page], :per_page => 12, :order => 'order_number')
       @offers.sort! { |a,b| a.order_number.downcase <=> b.order_number.downcase }
+      end
     end
   end
 end

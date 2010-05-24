@@ -24,6 +24,6 @@ module AircraftsHelper
   end
 
   def type_select
-     select :aircraft_type, :id, AircraftType.all.map {|t| [t.name, t.id]},{}, :onchange => remote_function(:update => "select-model-new", :url => {:action => :update_model}, :with => "'type_id=' + $('#aircraft_type_id option:selected').val()")
+     select :aircraft_type, :id, AircraftType.all.map {|t| [t.name, t.id]},{}, :onchange => remote_function(:update => "select-model-new", :url => {:action => :update_model, :controller => :aircrafts}, :with => "'type_id=' + $('#aircraft_type_id option:selected').val()")
   end
 end

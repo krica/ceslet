@@ -5,7 +5,15 @@
 
   <p>
     <%= f.label t('Aircraft') %><br />
-    <%= aircraft_select %>
+    <%= offer_type_select %> 
+    <div id="select-model-new">
+      <%= select :other, :aircraft_model_id, AircraftModel.find(:all, :conditions => {:aircraft_type_id => AircraftType.first.id}).map {|t| [t.name, t.id]},{}, :onchange => remote_function(:update => "select-aircraft", :url => {:action => :update_aircraft, :controller => :offers}, :with => "'model_id=' + $('#other_aircraft_model_id option:selected').val()") %>
+      <div id="select-aircraft">
+      <br />
+      <%= select :offer, :aircraft_id, Aircraft.find(:all, :conditions => {:aircraft_model_id => AircraftModel.find(AircraftType.first.id), :active => true }).map {|a| [a.matriculation + " - " + a.serial_number, a.id]}%>
+      </div>
+    </div>
+    <br />
   </p>
   <p>
     <%= f.label t('Order number') %><br />

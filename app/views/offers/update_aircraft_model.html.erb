@@ -1,0 +1,5 @@
+<%= select :other, :aircraft_model_id, @models.map {|t| [t.name, t.id]},{}, :onchange => remote_function(:update => "select-aircraft", :url => {:action => :update_aircraft, :controller => :offers}, :with => "'model_id=' + $('#other_aircraft_model_id option:selected').val()") %>
+<div id="select-aircraft">
+  <br />
+  <%= select :offer, :aircraft_id, @aircrafts.map {|a| [a.matriculation + " - " + a.serial_number, a.id]} %>
+</div>

@@ -2,7 +2,7 @@ class Aircraft < ActiveRecord::Base
 
 
   belongs_to :aircraft_model
-
+  has_many :offers
   validates_presence_of :serial_number
   validates_uniqueness_of :serial_number
   validates_presence_of :aircraft_model_id

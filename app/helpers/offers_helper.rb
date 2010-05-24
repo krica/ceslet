@@ -1,5 +1,8 @@
 module OffersHelper
   
+  def offer_type_select
+     select :aircraft_type, :id, AircraftType.all.map {|t| [t.name, t.id]},{}, :onchange => remote_function(:update => "select-model-new", :url => {:action => :update_aircraft_model, :controller => :offers}, :with => "'type_id=' + $('#aircraft_type_id option:selected').val()")
+  end
   #prints offers destroy link
   def offer_destroy_link(offer)
     if current_user.has_role?("admin")
@@ -11,11 +14,21 @@ module OffersHelper
   def filters_menu
     ret = "<div id='filters-menu'>#{t('Sort by')} "
     if params[:sort_by] == "aircrafts"
-      ret << link_to_with_icon('shuffle',t('By order number') , {:action => :index}, :class=>"fg-btn-small to-btn")
+      ret << link_to_with_icon('shuffle',t('By order number') , {:action => :index, :sort_by => "order_number"}, :class=>"fg-btn-small to-btn")
       ret << link_to_with_icon('shuffle',t('By aircrafts') , {:action => :index, :sort_by => "aircrafts"}, :class=>"fg-btn-small ui-state-active to-btn")
-    else
-      ret << link_to_with_icon('shuffle',t('By order number') , {:action => :index}, :class=>"fg-btn-small ui-state-active to-btn")
+      ret << link_to_with_icon('shuffle',t('By created') , {:action => :index}, :class=>"fg-btn-small to-btn")
+    elsif params[:sort_by] == "created_at"
+      ret << link_to_with_icon('shuffle',t('By order number') , {:action => :index, :sort_by => "order_number"}, :class=>"fg-btn-small to-btn")
       ret << link_to_with_icon('shuffle',t('By aircrafts') , {:action => :index, :sort_by => "aircrafts"}, :class=>"fg-btn-small to-btn")
+      ret << link_to_with_icon('shuffle',t('By created') , {:action => :index}, :class=>"fg-btn-small ui-state-active to-btn")
+    elsif params[:sort_by] == "order_number"
+      ret << link_to_with_icon('shuffle',t('By order number') , {:action => :index, :sort_by => "order_number"}, :class=>"fg-btn-small ui-state-active to-btn")
+      ret << link_to_with_icon('shuffle',t('By aircrafts') , {:action => :index, :sort_by => "aircrafts"}, :class=>"fg-btn-small to-btn")
+      ret << link_to_with_icon('shuffle',t('By created') , {:action => :index}, :class=>"fg-btn-small to-btn")
+    else
+      ret << link_to_with_icon('shuffle',t('By order number') , {:action => :index, :sort_by => "order_number"}, :class=>"fg-btn-small to-btn")
+      ret << link_to_with_icon('shuffle',t('By aircrafts') , {:action => :index, :sort_by => "aircrafts"}, :class=>"fg-btn-small to-btn")
+      ret << link_to_with_icon('shuffle',t('By created') , {:action => :index}, :class=>"fg-btn-small ui-state-active to-btn")
     end
     ret << "<br />"
     ret << find_offer_by_order_number

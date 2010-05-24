@@ -1,9 +1,16 @@
 <h1><%= t('Offers') %></h1>
+<% if Aircraft.find(:all, :conditions => {:active => true}) != []  %>
 <%= filters_menu %>
 <% unless current_user.has_role?("observer") %>
 <br />
 <p>
   <%= link_to_with_icon('plus',t('New offer') , new_offer_path, :class=>"fg-button  to-btn") %>
+</p>
+<% end %>
+<% else %>
+<p>
+
+  <%= t('Cant create offer') %>
 </p>
 <% end %>
 <table>
