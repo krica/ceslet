@@ -20,7 +20,7 @@ module AircraftModelsHelper
   end
 
   def hide_add_type_link
-    link_to t('Back'), "#", :class => "fg-button to-btn", :onclick => "$('#add-type').slideUp('fast');$('#add-type-link').show();"
+    link_to t('Hide'), "#", :class => "fg-button to-btn", :onclick => "$('#add-type').slideUp('fast');$('#add-type-link').show();"
   end
 
   def model_select_type

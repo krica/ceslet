@@ -20,7 +20,7 @@ module AircraftsHelper
   end
 
   def hide_add_model_link
-    link_to t('Back'), "#", :class => "fg-button to-btn", :onclick => "$('#add-model').slideUp('fast');$('#add-model-link').show();"
+    link_to t('Hide'), "#", :class => "fg-button to-btn", :onclick => "$('#add-model').slideUp('fast');$('#add-model-link').show();"
   end
 
   def type_select
