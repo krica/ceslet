@@ -12,8 +12,8 @@
     <%= f.text_field :description %>
   </p>
   <p>
-    <%= f.label t('Date') %><br />
-    <%= f.text_field :date, :class => "datepicker" %>
+    <%= f.label t('Value') %><br />
+    <%= f.text_field :value %>
   </p>
   <p>
     <%= f.label t('Active') %><br />
@@ -21,6 +21,7 @@
   </p>
   <p>
   <%= f.submit t('Create'), :class => "fg-button to-btn" %>
+  <%= f.submit t('Create and continue'), :class => "fg-button to-btn", :name => "submit_continue" %>
   </p>
 <% end %>
 

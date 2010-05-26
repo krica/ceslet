@@ -52,8 +52,12 @@ class ClassificationsController < ApplicationController
       if @classification.save
         add_to_log(t('Classification created log') + @classification.name,"classifications","create")
         flash[:notice] = t('Classification created')
-        format.html { redirect_to(@classification) }
-        format.xml  { render :xml => @classification, :status => :created, :location => @classification }
+        if params[:submit_continue] == I18n.t('Create and continue')
+          format.html { redirect_to(:action => :new) }
+        else
+          format.html { redirect_to(@classification) }
+          format.xml  { render :xml => @classification, :status => :created, :location => @classification }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @classification.errors, :status => :unprocessable_entity }

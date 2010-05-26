@@ -55,8 +55,12 @@ class RegulationBasesController < ApplicationController
       if @regulation_basis.save
         add_to_log(t('Regulation basis create log') + @regulation_basis.name,"regulation_basis","create")
         flash[:notice] = t('Regulation basis created')
-        format.html { redirect_to(@regulation_basis) }
-        format.xml  { render :xml => @regulation_basis, :status => :created, :location => @regulation_basis }
+        if params[:submit_continue] == I18n.t('Create and continue')
+          format.html { redirect_to(:action => :new) }
+        else
+          format.html { redirect_to(@regulation_basis) }
+          format.xml  { render :xml => @regulation_basis, :status => :created, :location => @regulation_basis }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @regulation_basis.errors, :status => :unprocessable_entity }

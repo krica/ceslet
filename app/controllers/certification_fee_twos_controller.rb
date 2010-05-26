@@ -54,8 +54,12 @@ class CertificationFeeTwosController < ApplicationController
       if @certification_fee_two.save
         add_to_log(t('Cetrtification fee two created log') + @certification_fee_two.kind,"certification_fee_twos","create")
         flash[:notice] = t('Certification fee two created')
-        format.html { redirect_to(@certification_fee_two) }
-        format.xml  { render :xml => @certification_fee_two, :status => :created, :location => @certification_fee_two }
+        if params[:submit_continue] == I18n.t('Create and continue')
+          format.html { redirect_to(:action => :new) }
+        else
+          format.html { redirect_to(@certification_fee_two) }
+          format.xml  { render :xml => @certification_fee_two, :status => :created, :location => @certification_fee_two }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @certification_fee_two.errors, :status => :unprocessable_entity }

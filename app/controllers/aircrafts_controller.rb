@@ -64,8 +64,12 @@ class AircraftsController < ApplicationController
       if @aircraft.save
         add_to_log(t('Aircraft created log') + @aircraft.name,"aircrafts","create")
         flash[:notice] = t('Aircraft created')
-        format.html { redirect_to(@aircraft) }
-        format.xml  { render :xml => @aircraft, :status => :created, :location => @aircraft }
+        if params[:submit_continue] == I18n.t('Create and continue')
+          format.html { redirect_to(:action => :new) }
+        else
+          format.html { redirect_to(@aircraft) }
+          format.xml  { render :xml => @aircraft, :status => :created, :location => @aircraft }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @aircraft.errors, :status => :unprocessable_entity }

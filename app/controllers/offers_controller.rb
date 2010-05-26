@@ -98,8 +98,12 @@ class OffersController < ApplicationController
       end
         add_to_log(t('Created new offer no') + @offer.order_number,"offers","create")
         flash[:notice] = t('Offer created')
-        format.html { redirect_to(@offer) }
-        format.xml  { render :xml => @offer, :status => :created, :location => @offer }
+        if params[:submit_continue] == I18n.t('Create and continue')
+          format.html { redirect_to(:action => :new) }
+        else
+          format.html { redirect_to(@offer) }
+          format.xml  { render :xml => @offer, :status => :created, :location => @offer }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @offer.errors, :status => :unprocessable_entity }

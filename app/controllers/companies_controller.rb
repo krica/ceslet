@@ -53,8 +53,12 @@ class CompaniesController < ApplicationController
       if @company.save
         add_to_log(t('Company created log') + @company.name,"companies","create")
         flash[:notice] = t('Company created')
-        format.html { redirect_to(@company) }
-        format.xml  { render :xml => @company, :status => :created, :location => @company }
+        if params[:submit_continue] == I18n.t('Create and continue')
+          format.html { redirect_to(:action => :new) }
+        else
+          format.html { redirect_to(@company) }
+          format.xml  { render :xml => @company, :status => :created, :location => @company }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }

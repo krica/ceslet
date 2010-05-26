@@ -160,7 +160,7 @@ module OffersHelper
         ret << " checked"
       end
       ret << ' />'
-      ret << "#{fee.kind} #{fee.description}<br />"
+      ret << "#{fee.kind} #{fee.description} #{fee.value} EUR<br />"
     end
     return ret
 
